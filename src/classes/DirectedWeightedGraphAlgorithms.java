@@ -309,14 +309,13 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
     @Override
     public boolean load(String file) {
         JsonParser jsonParser = new JsonParser();
-        try (FileReader reader = new FileReader(file)) {
-            Object obj = jsonParser.parse(reader);
+        try {
+            Object obj = jsonParser.parse(file);
             JsonObject dwg = (JsonObject) obj;
             JsonArray jaE = (JsonArray) dwg.get("Edges");
             JsonArray jaN = (JsonArray) dwg.get("Nodes");
             createGraphFromJson(jaN, jaE);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
             return false;
         }
         return true;
@@ -341,3 +340,26 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
         }
     }
 }
+/**
+ * returns: json str of agents. for example:
+ *
+ * <pre>
+ * {
+ *     "Agents":[
+ *         {
+ *             "Agent":
+ *             {
+ *                 "id":0,
+ *                 "value":0.0,
+ *                 "src":0,
+ *                 "dest":1,
+ *                 "speed":1.0,
+ *                 "pos":"35.18753053591606,32.10378225882353,0.0"
+ *             }
+ *         }
+ *     ]
+ * }
+ * </pre>
+ *
+ * @return json str of agents
+ */
