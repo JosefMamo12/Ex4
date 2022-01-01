@@ -3,9 +3,9 @@ package classes;
 import java.util.Objects;
 
 public class EdgeData implements api.EdgeData {
-    private int src;
-    private int dest;
-    private double weight;
+    private final int src;
+    private final int dest;
+    private final double weight;
     private int tag;
     private String info;
 
