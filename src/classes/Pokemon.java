@@ -5,6 +5,7 @@ import Util.Point3D;
 import Util.Range2Range;
 
 import javax.swing.*;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,10 +14,17 @@ public class Pokemon {
     private int type;
     private GeoLocation pos;
     private EdgeData edge;
+    private double distance;
+
 
     public Pokemon(double value, int type, GeoLocation pos) {
+        this.value = value;
+        this.type = type;
         this.pos = pos;
+        this.distance = 0;
+
     }
+
 
     public double getValue() {
         return value;
@@ -24,6 +32,14 @@ public class Pokemon {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public double getDistance() {
+        return distance;
     }
 
     public int getType() {
@@ -49,4 +65,5 @@ public class Pokemon {
     public void setEdge(EdgeData relatedEdge) {
         this.edge = relatedEdge;
     }
+
 }

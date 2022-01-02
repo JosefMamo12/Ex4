@@ -5,9 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import ex4_java_client.Client;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GameManger {
     public static final double EPS = 0.001, EPS2 = EPS * EPS;
@@ -25,6 +23,10 @@ public class GameManger {
         return agents;
     }
 
+    public DirectedWeightedGraphAlgorithms getGraphAlgo() {
+        return graphAlgo;
+    }
+
     public GameManger(Client client) {
         this.client = client;
         pokemons = new ArrayList<>();
@@ -39,6 +41,10 @@ public class GameManger {
 
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     public void move() {
         client.move();
     }
@@ -51,9 +57,8 @@ public class GameManger {
         return client.isRunning().equals("true");
     }
 
-    public DirectedWeightedGraph loadGraph() {
+    public void loadGraph() {
         graphAlgo.load(client.getGraph());
-        return graphAlgo.getGraph();
     }
 
     public DirectedWeightedGraph getGraph() {
@@ -158,10 +163,18 @@ public class GameManger {
                 }
             }
         }
-        if (p.getType() == 1) {
-            p.setEdge(graph.getEdge(src, dest));
+        if (src > dest) {
+            if (p.getType() > 0)
+                p.setEdge(graph.getEdge(dest, src));
+            else {
+                p.setEdge(graph.getEdge(src, dest));
+            }
         } else {
-            p.setEdge(graph.getEdge(dest, src));
+            if (p.getType() > 0) {
+                p.setEdge(graph.getEdge(src, dest));
+            } else {
+                p.setEdge(graph.getEdge(dest, src));
+            }
         }
     }
 
@@ -169,21 +182,30 @@ public class GameManger {
         pokemons = loadPokemons(client.getPokemons());
         for (Pokemon p : pokemons) {
             relatedEdge(p);
-
         }
     }
 
     public void update() {
+        pokemons = loadPokemons(client.getPokemons());
+        for (Pokemon p : pokemons) {
+            relatedEdge(p);
+        }
         agents = loadAgents(client.getAgents());
 
     }
 
-    public void addAgents(int agentsSize) {
+    public void addAgents(int agentsSize, HashMap<Integer, Stack<Integer>> agentPath, HashMap<Integer, Integer> agentBool) {
         for (int i = 0; i < agentsSize; i++) {
             Pokemon p = pokemons.get(i);
             client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");
+            agentPath.put(i, new Stack<>()); // Intial the agent path
+            agentBool.put(i, -1);
         }
     }
+    public String getInfo(){
+        return client.getInfo();
+    }
+
 }
 
 

@@ -8,6 +8,7 @@ import classes.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
@@ -22,6 +23,7 @@ import java.util.Map;
  * Represnation of the graph using java swing.
  */
 public class GraphDraw extends JPanel {
+    Border border = BorderFactory.createLineBorder(Color.green);
     DirectedWeightedGraph graph;
     Range2Range range;
     ArrayList<Agent> agents;
@@ -32,9 +34,10 @@ public class GraphDraw extends JPanel {
     public GraphDraw(GameManger gm) {
         this.gm = gm;
         graph = gm.getGraph();
-        this.setBounds(125, 75, 750, 600);
+        this.setBounds(0, 0, 750, 600);
         this.agents = gm.getAgents();
         this.pokemons = gm.getPokemons();
+        this.setBorder(border);
         importImages();
     }
 
@@ -72,7 +75,7 @@ public class GraphDraw extends JPanel {
         Point3D agentScreenLocation = (Point3D) range.world2frame(pokemonGeoLocation);
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(new Color(0, 155, 0));
-        g2d.drawOval((int) agentScreenLocation.x() , (int) agentScreenLocation.y() - 5, 15, 15);
+        g2d.drawOval((int) agentScreenLocation.x(), (int) agentScreenLocation.y(), 15, 15);
     }
 
     private void drawAgent(Graphics2D g2d, Agent agent) {
@@ -80,27 +83,20 @@ public class GraphDraw extends JPanel {
         Point3D agentScreenLocation = (Point3D) range.world2frame(agentGeoLocation);
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(new Color(255, 0, 0));
-        g2d.drawOval((int) agentScreenLocation.x() - 10, (int) agentScreenLocation.y(), 15, 15);
+        g2d.drawOval((int) agentScreenLocation.x(), (int) agentScreenLocation.y(), 15, 15);
     }
 
     private void drawEdge(Graphics2D g2d, EdgeData edge) {
-        boolean flag = edge.getInfo().equals("ToPaint");
         GeoLocation s = (GeoLocation) graph.getNodes().get(edge.getSrc()).getLocation();
         GeoLocation d = (GeoLocation) graph.getNodes().get(edge.getDest()).getLocation();
         Point3D sP = (Point3D) range.world2frame(s);
         Point3D dP = (Point3D) range.world2frame(d);
-        if (!flag)
-            g2d.setColor(new Color(173, 122, 68));
-        else {
-            g2d.setColor(new Color(100, 90, 255));
-            g2d.setStroke(new BasicStroke(3));
-        }
-
-        drawArrow(g2d, (int) sP.x(), (int) sP.y(), (int) dP.x(), (int) dP.y(), flag);
+        g2d.setColor(new Color(173, 122, 68));
+        drawArrow(g2d, (int) sP.x(), (int) sP.y(), (int) dP.x(), (int) dP.y());
 
     }
 
-    private void drawArrow(Graphics2D g2d, int x1, int y1, int x2, int y2, boolean flag) {
+    private void drawArrow(Graphics2D g2d, int x1, int y1, int x2, int y2) {
         Graphics2D g = (Graphics2D) g2d.create();
         double dx = x2 - x1, dy = y2 - y1;
         double angle = Math.atan2(dy, dx);
@@ -109,10 +105,7 @@ public class GraphDraw extends JPanel {
         at.concatenate(AffineTransform.getRotateInstance(angle));
         g.transform(at);
         int ARR_SIZE = 7;
-        if (!flag)
-            g.setStroke(new BasicStroke(2));
-        else
-            g.setStroke(new BasicStroke(4));
+        g.setStroke(new BasicStroke(4));
         g.drawLine(0, 0, len, 0);
         g.fillPolygon(new int[]{len - 10, len - ARR_SIZE - 20, len - ARR_SIZE - 10, len - 20}, new int[]{0, -ARR_SIZE, ARR_SIZE, 0}, 3);
     }
@@ -122,15 +115,8 @@ public class GraphDraw extends JPanel {
         GeoLocation pos = (GeoLocation) next.getLocation();
         Point3D fp = (Point3D) range.world2frame(pos);
         g2d.drawImage(nodePaint, (int) fp.x() - 10, (int) fp.y() - 15, null, this);
-        if (next.getInfo().equals("Center") || next.getInfo().equals("Path")) {
-            g2d.setFont(new Font("MV Boli", Font.BOLD, 30));
-            g2d.setColor(Color.RED);
-            g2d.drawOval((int) fp.x() - 14, (int) fp.y() - 20, 40, 40);
-        } else {
-            g2d.setFont(new Font("MV Boli", Font.BOLD, 20));
-            g2d.setColor(new Color(120, 35, 255));
-        }
-
+        g2d.setFont(new Font("MV Boli", Font.BOLD, 20));
+        g2d.setColor(new Color(120, 35, 255));
         g2d.drawString(" " + next.getKey(), (int) fp.x() - 14, (int) fp.y() - 20);
 
     }
@@ -187,6 +173,5 @@ public class GraphDraw extends JPanel {
             e.printStackTrace();
         }
     }
-
 
 }

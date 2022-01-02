@@ -10,6 +10,7 @@ import java.util.*;
 public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     private HashMap<Integer, NodeData> nodes;
     private HashMap<Integer, HashSet<Integer>> edgeIn;
+    private HashMap<Integer, HashSet<EdgeData>> edgeOut;
     private HashMap<Integer, HashMap<Integer, EdgeData>> graph;
     private int mc;
     private int edgeSize;
@@ -30,6 +31,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     public DirectedWeightedGraph() {
+        this.edgeOut = new HashMap<>();
         this.nodes = new HashMap<>();
         this.graph = new HashMap<>();
         this.edgeIn = new HashMap<>();
@@ -73,6 +75,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     @Override
     public void addNode(@NotNull NodeData n) {
         if (!this.graph.containsKey(n.getKey())) {
+            this.edgeOut.put(n.getKey(), new HashSet<>());
             this.nodes.put(n.getKey(), n);
             this.graph.put(n.getKey(), new HashMap<>());
             this.edgeIn.put(n.getKey(), new HashSet<>());
@@ -99,6 +102,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
             EdgeData e = new EdgeData(src, dest, w);
             this.graph.get(src).put(dest, e);
             this.edgeIn.get(dest).add(src);
+            this.edgeOut.get(src).add(e);
             this.mc++;
             this.edgeSize++;
         } else {
@@ -163,6 +167,13 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
                 throw new ConcurrentModificationException(ERROR);
             }
         };
+    }
+
+    public Collection<EdgeData> getEdgeOut(int src) {
+        if (edgeOut.containsKey(src)) {
+            return edgeOut.get(src);
+        }
+        return new HashSet<>();
     }
 
     /**
