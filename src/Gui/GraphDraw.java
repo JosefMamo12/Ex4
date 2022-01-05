@@ -34,7 +34,7 @@ public class GraphDraw extends JPanel {
     public GraphDraw(GameManger gm) {
         this.gm = gm;
         graph = gm.getGraph();
-        this.setBounds(0, 0, 750, 600);
+        this.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
         this.agents = gm.getAgents();
         this.pokemons = gm.getPokemons();
         this.setBorder(border);
@@ -72,18 +72,20 @@ public class GraphDraw extends JPanel {
 
     private void drawPokemon(Graphics2D g2d, Pokemon pokemon) {
         GeoLocation pokemonGeoLocation = pokemon.getPos();
-        Point3D agentScreenLocation = (Point3D) range.world2frame(pokemonGeoLocation);
-        g2d.setStroke(new BasicStroke(3));
-        g2d.setColor(new Color(0, 155, 0));
-        g2d.drawOval((int) agentScreenLocation.x(), (int) agentScreenLocation.y(), 15, 15);
+        Point3D pokemonScreenLocation = (Point3D) range.world2frame(pokemonGeoLocation);
+        if (pokemon.getValue() <= 5)
+            g2d.drawImage(sunji, (int) pokemonScreenLocation.x() - 18, (int) pokemonScreenLocation.y() - 15, null, this);
+        else if (pokemon.getValue() > 5 && pokemon.getValue() <= 10)
+            g2d.drawImage(zoro, (int) pokemonScreenLocation.x() - 18, (int) pokemonScreenLocation.y() - 15, null, this);
+        else
+            g2d.drawImage(luffy, (int) pokemonScreenLocation.x() - 18, (int) pokemonScreenLocation.y() - 15, null, this);
+
     }
 
     private void drawAgent(Graphics2D g2d, Agent agent) {
         GeoLocation agentGeoLocation = agent.getPos();
         Point3D agentScreenLocation = (Point3D) range.world2frame(agentGeoLocation);
-        g2d.setStroke(new BasicStroke(3));
-        g2d.setColor(new Color(255, 0, 0));
-        g2d.drawOval((int) agentScreenLocation.x(), (int) agentScreenLocation.y(), 15, 15);
+        g2d.drawImage(agentImage, (int) agentScreenLocation.x() - 20, (int) agentScreenLocation.y() - 15, null, this);
     }
 
     private void drawEdge(Graphics2D g2d, EdgeData edge) {
@@ -104,8 +106,8 @@ public class GraphDraw extends JPanel {
         AffineTransform at = AffineTransform.getTranslateInstance(x1, y1);
         at.concatenate(AffineTransform.getRotateInstance(angle));
         g.transform(at);
-        int ARR_SIZE = 7;
-        g.setStroke(new BasicStroke(4));
+        int ARR_SIZE = 10;
+        g.setStroke(new BasicStroke(6));
         g.drawLine(0, 0, len, 0);
         g.fillPolygon(new int[]{len - 10, len - ARR_SIZE - 20, len - ARR_SIZE - 10, len - 20}, new int[]{0, -ARR_SIZE, ARR_SIZE, 0}, 3);
     }
@@ -114,7 +116,7 @@ public class GraphDraw extends JPanel {
     private void drawNode(Graphics g2d, NodeData next) {
         GeoLocation pos = (GeoLocation) next.getLocation();
         Point3D fp = (Point3D) range.world2frame(pos);
-        g2d.drawImage(nodePaint, (int) fp.x() - 10, (int) fp.y() - 15, null, this);
+        g2d.drawImage(nodePaint, (int) fp.x() - 25, (int) fp.y() - 30, null, this);
         g2d.setFont(new Font("MV Boli", Font.BOLD, 20));
         g2d.setColor(new Color(120, 35, 255));
         g2d.drawString(" " + next.getKey(), (int) fp.x() - 14, (int) fp.y() - 20);
@@ -153,6 +155,10 @@ public class GraphDraw extends JPanel {
 
     static BufferedImage backGround = null;
     static BufferedImage nodePaint = null;
+    static BufferedImage luffy = null;
+    static BufferedImage zoro = null;
+    static BufferedImage sunji = null;
+    static BufferedImage agentImage = null;
 
 
     private void paintBackground(Graphics2D g2d) {
@@ -162,8 +168,14 @@ public class GraphDraw extends JPanel {
 
     public void importImages() {
         try {
-            backGround = ImageIO.read(new File("resources/Background1.jpg"));
-            nodePaint = ImageIO.read(new File("resources/new.png"));
+
+            backGround = ImageIO.read(new File("resources/seabackground.jpg"));
+            agentImage = ImageIO.read(new File("resources/agent.png"));
+            nodePaint = ImageIO.read(new File("resources/pirateboat.png"));
+            luffy = ImageIO.read(new File("resources/luffy.png"));
+            zoro = ImageIO.read(new File("resources/zoro.png"));
+            sunji = ImageIO.read(new File("resources/sunji.png"));
+
             /*
             For jar file images
              */

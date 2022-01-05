@@ -8,10 +8,10 @@ import java.util.*;
  * This class repr
  */
 public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
-    private HashMap<Integer, NodeData> nodes;
-    private HashMap<Integer, HashSet<Integer>> edgeIn;
-    private HashMap<Integer, HashSet<EdgeData>> edgeOut;
-    private HashMap<Integer, HashMap<Integer, EdgeData>> graph;
+    private final HashMap<Integer, NodeData> nodes;
+    private final HashMap<Integer, HashSet<Integer>> edgeIn;
+    private final HashMap<Integer, HashSet<EdgeData>> edgeOut;
+    private final HashMap<Integer, HashMap<Integer, EdgeData>> graph;
     private int mc;
     private int edgeSize;
 
@@ -185,10 +185,10 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     @Override
     public Iterator<EdgeData> edgeIter() {
         return new Iterator<EdgeData>() {
-            Iterator<NodeData> it = nodeIter();
+            final Iterator<NodeData> it = nodeIter();
             Iterator<EdgeData> edItr;
             boolean flagForHasNext = false;
-            int Itrmc = getMC();
+            final int Itrmc = getMC();
 
             @Override
             public boolean hasNext() {
@@ -196,14 +196,14 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
                     if (it.hasNext() && !flagForHasNext) {
                         flagForHasNext = true;
                         edItr = edgeIter(it.next().getKey());
-                        if(edItr.hasNext() == false && it.hasNext()) {
+                        if(!edItr.hasNext() && it.hasNext()) {
                             edItr = edgeIter(it.next().getKey());
                         }
                     } else if (flagForHasNext) {
                         if (!edItr.hasNext())
                             flagForHasNext = false;
                         else
-                            return edItr.hasNext();
+                            return true;
                     } else {
                         return false;
                     }
@@ -228,8 +228,8 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
         return new Iterator<EdgeData>() {
-            Iterator<EdgeData> it = graph.get(node_id).values().iterator();
-            int itrMc = getMC();
+            final Iterator<EdgeData> it = graph.get(node_id).values().iterator();
+            final int itrMc = getMC();
 
             @Override
             public boolean hasNext() {

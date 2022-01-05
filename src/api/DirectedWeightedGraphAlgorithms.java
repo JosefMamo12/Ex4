@@ -73,7 +73,6 @@ public interface DirectedWeightedGraphAlgorithms {
     public List<NodeData> shortestPath(int src, int dest);
 
 
-    public boolean save(String file);
 
     /**
      * This method loads a graph to this graph algorithm.

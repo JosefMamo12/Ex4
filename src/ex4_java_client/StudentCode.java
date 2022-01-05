@@ -11,13 +11,15 @@ import classes.*;
 import java.io.IOException;
 import java.util.*;
 
+import static java.lang.Thread.sleep;
+
 
 public class StudentCode implements Runnable {
+    int moveCounter = 0;
     private GameManger gameManger;
     private MyFrame frame;
-    private HashMap<Integer, Stack<Integer>> agentPath;
-    private HashMap<Integer, Boolean> agentBool;
     private HashMap<Integer, Integer> agentDest;
+    private long waitingTime;
 
 
     public static void main(String[] args) {
@@ -28,10 +30,9 @@ public class StudentCode implements Runnable {
 
 
     private void init() {
-        agentBool = new HashMap<>();
-        agentPath = new HashMap<>();
         agentDest = new HashMap<>();
         Client client = new Client();
+        waitingTime = 100;
         try {
             client.startConnection("127.0.0.1", 6666);
         } catch (IOException e) {
@@ -41,9 +42,7 @@ public class StudentCode implements Runnable {
         GameServer gameServer = GameManger.loadGameServer(client.getInfo());
         gameManger.loadGraph();
         gameManger.upadtePokemons();
-        gameManger.addAgents(gameServer.getAgentsSize(), agentPath, agentDest);
-//        gameManger.update();
-
+        gameManger.addAgents(gameServer.getAgentsSize(), agentDest);
 
         frame = new MyFrame(gameManger);
 
@@ -54,29 +53,37 @@ public class StudentCode implements Runnable {
     public void run() {
         init();
         gameManger.start();
-
+        System.out.println(gameManger.getInfo());
         while (gameManger.isRunning()) {
-
             gameManger.update();
             moveAgents();
 
             try {
-            frame.repaint();
-            gameManger.move();
-            Thread.sleep(100);
+                if (allAgentGotDest()) {
+                    gameManger.move();
+                }
+                Thread.sleep(100);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(gameManger.getInfo());
 
+            frame.repaint();
         }
+    }
 
-
+    private boolean allAgentGotDest() {
+        for (Map.Entry<Integer, Integer> entry : agentDest.entrySet()) {
+            if (entry.getValue() == -1)
+                return false;
+        }
+        return true;
     }
 
     private void moveAgents() {
+
         int id = -1;
+
         for (Agent agent : gameManger.getAgents()) {
             id = agent.getId();
             int dest = agent.getDest();
@@ -84,50 +91,38 @@ public class StudentCode implements Runnable {
                 if (agent.getSrc() == agentDest.get(id)) {
                     agentDest.put(id, -1);
                 }
-
                 int nextNode = nextAgent(agent);
                 gameManger.chooseNextEdge(id, nextNode);
+                System.out.println();
+                System.out.println("Agent: " + id + " currnet node: " + agent.getSrc() + " Go To Node: " + nextNode + " current value: " + agent.getValue());
 
             }
-
-
         }
     }
 
     private int nextAgent(Agent agent) {
-
-        PriorityQueue<Pokemon> pq = new PriorityQueue<>(new pokemonComp());
+        PriorityQueue<Pokemon> pq = new PriorityQueue<>(new pokemonComp().reversed());
         for (Pokemon p : gameManger.getPokemons()) {
             if (!agentDest.containsValue(p.getEdge().getDest()) || agentDest.get(agent.getId()) == p.getEdge().getDest()) {
                 p.setDistance(gameManger.getGraphAlgo().shortestPathDist(agent.getId(), p.getEdge().getDest()));
+                System.out.println("Agent pos: " + agent.getSrc() + ", Pokemon edge dest: " + p.getEdge().getDest() + ", PokemonDistance " + p.getDistance() + ", Type: " + p.getType());
                 pq.add(p);
             }
-
         }
         ArrayList<NodeData> lst = null;
         if (!pq.isEmpty()) {
             Pokemon pk = pq.poll();
             agentDest.put(agent.getId(), pk.getEdge().getDest());
             if (agent.getSrc() == pk.getEdge().getDest()) {
+                agent.setValue(pk.getValue());
                 return pk.getEdge().getSrc();
             } else {
                 lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(), pk.getEdge().getDest()));
             }
+        }
 
-        }
-        if (lst == null || lst.isEmpty()) {
-            LinkedList<EdgeData> ed = new LinkedList<>(gameManger.getGraph().getEdgeOut(agent.getSrc()));
-            return ed.getFirst().getDest();
-        }
+        assert lst != null;
         return lst.get(1).getKey();
-    }
-
-    private List<Integer> convertToIntValue(List<NodeData> list) {
-        List<Integer> lst = new Stack<>();
-        for (NodeData n : list) {
-            lst.add(n.getKey());
-        }
-        return lst;
     }
 
     public static class pokemonComp implements Comparator<Pokemon> {
@@ -138,7 +133,7 @@ public class StudentCode implements Runnable {
 
         @Override
         public int compare(Pokemon p1, Pokemon p2) {
-            return Double.compare(p1.getDistance(), p2.getDistance());
+            return Double.compare(p1.getValue() / p1.getDistance(), p2.getValue() / p2.getDistance());
         }
     }
 }

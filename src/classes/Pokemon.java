@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Pokemon {
+public class Pokemon{
     private double value;
     private int type;
     private GeoLocation pos;

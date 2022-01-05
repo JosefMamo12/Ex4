@@ -20,7 +20,7 @@ public class MyFrame extends JFrame {
         this.setResizable(true);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.setSize(1000, 800);
         this.setTitle("Graph");
         this.add(gd);

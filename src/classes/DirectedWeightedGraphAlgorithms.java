@@ -3,10 +3,8 @@ package classes;
 import com.google.gson.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.w3c.dom.Node;
 
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -188,15 +186,18 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
      * Time Complexity O(V + E*log*V)
      *
      * @param src
+     * @param dest
      */
 
-    public void DIJKSTRA(int src) {
+    public void DIJKSTRA(int src, int dest) {
         clean();
         g.getNode(src).setWeight(0);
         PriorityQueue<NodeData> pq = new PriorityQueue<>();
         pq.add(g.getNode(src));
         while (!pq.isEmpty()) {
             NodeData currNode = pq.poll();
+            if(currNode.getKey() == dest)
+                break;
             Iterator<EdgeData> itr = g.edgeIter(currNode.getKey());
             while (itr.hasNext()) {
                 EdgeData e = itr.next();
@@ -227,7 +228,7 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
     public double shortestPathDist(int src, int dest) {
         clean();
         if (src != dest && g != null && g.getNodes().containsKey(src) && g.getNodes().containsKey(dest)) {
-            DIJKSTRA(src);
+            DIJKSTRA(src,dest);
             if (g.getNode(dest).getWeight() != inf)
                 return g.getNode(dest).getWeight();
         }
@@ -239,7 +240,6 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
         if (shortestPathDist(src, dest) != -1) {
             List<NodeData> lst = new LinkedList<>();
             while (src != dest) {
-                g.getNode(dest).setInfo("Path");
                 lst.add(g.getNode(dest));
                 int tempDest = dest;
                 int tempSrc = parent.get(dest);
@@ -254,51 +254,6 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
         return null;
     }
 
-    /**
-     * Save the DirectedWeightedGraph as json.
-     *
-     * @param file - the file name (may include a relative path).
-     * @return
-     */
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public boolean save(String file) {
-        JSONObject jo = new JSONObject();
-        JSONArray jaE = new JSONArray();
-        JSONArray jaN = new JSONArray();
-        for (Map.Entry<Integer, HashMap<Integer, EdgeData>> entry : g.getGraph().entrySet()) {
-            Integer entryKey = entry.getKey();
-            NodeData nd = g.getNode(entryKey);
-            JSONObject node = new JSONObject();
-            node.put("id", nd.getKey());
-            node.put("pos", nd.getLocation().toString());
-            jaN.add(node);
-            for (Map.Entry<Integer, EdgeData> innerEntry : entry.getValue().entrySet()) {
-                EdgeData innerEdge = innerEntry.getValue();
-                JSONObject edge = new JSONObject();
-                edge.put("src", innerEdge.getSrc());
-                edge.put("w", innerEdge.getWeight());
-                edge.put("dest", innerEdge.getDest());
-                jaE.add(edge);
-
-            }
-        }
-        jo.put("Edges", jaE);
-        jo.put("Nodes", jaN);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonParser jp = new JsonParser();
-        JsonElement je = jp.parse(jo.toJSONString());
-        String prettyPrinting = gson.toJson(je);
-        try (FileWriter f = new FileWriter(file)) {
-            f.write(prettyPrinting);
-            f.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
 
     /**
      * Load a json file to DirectedWeightedGraph object.

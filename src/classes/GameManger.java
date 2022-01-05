@@ -165,15 +165,15 @@ public class GameManger {
         }
         if (src > dest) {
             if (p.getType() > 0)
-                p.setEdge(graph.getEdge(dest, src));
-            else {
                 p.setEdge(graph.getEdge(src, dest));
+            else {
+                p.setEdge(graph.getEdge(dest, src));
             }
         } else {
             if (p.getType() > 0) {
-                p.setEdge(graph.getEdge(src, dest));
-            } else {
                 p.setEdge(graph.getEdge(dest, src));
+            } else {
+                p.setEdge(graph.getEdge(src, dest));
             }
         }
     }
@@ -194,11 +194,10 @@ public class GameManger {
 
     }
 
-    public void addAgents(int agentsSize, HashMap<Integer, Stack<Integer>> agentPath, HashMap<Integer, Integer> agentBool) {
+    public void addAgents(int agentsSize, HashMap<Integer, Integer> agentBool) {
         for (int i = 0; i < agentsSize; i++) {
             Pokemon p = pokemons.get(i);
-            client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");
-            agentPath.put(i, new Stack<>()); // Intial the agent path
+            client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");// Intial the agent path
             agentBool.put(i, -1);
         }
     }
