@@ -9,7 +9,8 @@ import api.GeoLocation;
 
 public class Range2Range {
 
-    private Range2D _world, _frame;
+    private final Range2D _world;
+    private final Range2D _frame;
 
     public Range2Range(Range2D w, Range2D f) {
         _world = new Range2D(w);

@@ -66,4 +66,12 @@ public class Pokemon{
         this.edge = relatedEdge;
     }
 
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "value=" + value + " " +
+                "EdgeSrc=" + getEdge().getSrc() +" " +
+                "EdgeDest=" + getEdge().getDest() +
+                '}';
+    }
 }

@@ -1,12 +1,8 @@
 package classes;
 
 import com.google.gson.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -185,6 +181,7 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
      * shortest path from the particular source node to all other nodes in the graph.
      * Time Complexity O(V + E*log*V)
      *
+     * @param dest
      * @param src
      * @param dest
      */
@@ -196,9 +193,9 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
         pq.add(g.getNode(src));
         while (!pq.isEmpty()) {
             NodeData currNode = pq.poll();
-            if(currNode.getKey() == dest)
-                break;
             Iterator<EdgeData> itr = g.edgeIter(currNode.getKey());
+            if (dest == currNode.getKey())
+                break;
             while (itr.hasNext()) {
                 EdgeData e = itr.next();
                 if (g.getNode(e.getDest()).getTag() == 0) {
@@ -228,7 +225,7 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
     public double shortestPathDist(int src, int dest) {
         clean();
         if (src != dest && g != null && g.getNodes().containsKey(src) && g.getNodes().containsKey(dest)) {
-            DIJKSTRA(src,dest);
+            DIJKSTRA(src, dest);
             if (g.getNode(dest).getWeight() != inf)
                 return g.getNode(dest).getWeight();
         }

@@ -104,4 +104,8 @@ public class NodeData implements api.NodeData, Comparable<NodeData> {
         return 0;
     }
 
+    @Override
+    public String toString() {
+        return   "" + key ;
+    }
 }

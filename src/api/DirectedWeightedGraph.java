@@ -21,7 +21,7 @@ public interface DirectedWeightedGraph {
      * @param key - the node_id
      * @return the node_data by the node_id, null if none.
      */
-    public NodeData getNode(int key);
+    NodeData getNode(int key);
 
     /**
      * returns the data of the edge (src,dest), null if none.
@@ -31,7 +31,7 @@ public interface DirectedWeightedGraph {
      * @param dest
      * @return
      */
-    public EdgeData getEdge(int src, int dest);
+    EdgeData getEdge(int src, int dest);
 
     /**
      * adds a new node to the graph with the given node_data.
@@ -51,7 +51,7 @@ public interface DirectedWeightedGraph {
      * @param dest - the destination of the edge.
      * @param w    - positive weight representing the cost (aka time, price, etc) between src-->dest.
      */
-    public void connect(int src, int dest, double w);
+    void connect(int src, int dest, double w);
 
     /**
      * This method returns an Iterator for the
@@ -60,7 +60,7 @@ public interface DirectedWeightedGraph {
      *
      * @return Iterator<node_data>
      */
-    public Iterator<classes.NodeData> nodeIter();
+    Iterator<classes.NodeData> nodeIter();
 
     /**
      * This method returns an Iterator for all the edges in this graph.
@@ -68,7 +68,7 @@ public interface DirectedWeightedGraph {
      *
      * @return Iterator<EdgeData>
      */
-    public Iterator<classes.EdgeData> edgeIter();
+    Iterator<classes.EdgeData> edgeIter();
 
     /**
      * This method returns an Iterator for edges getting out of the given node (all the edges starting (source) at the given node).
@@ -76,7 +76,7 @@ public interface DirectedWeightedGraph {
      *
      * @return Iterator<EdgeData>
      */
-    public Iterator<classes.EdgeData> edgeIter(int node_id);
+    Iterator<classes.EdgeData> edgeIter(int node_id);
 
     /**
      * Deletes the node (with the given ID) from the graph -
@@ -86,7 +86,7 @@ public interface DirectedWeightedGraph {
      * @param key
      * @return the data of the removed node (null if none).
      */
-    public NodeData removeNode(int key);
+    NodeData removeNode(int key);
 
     /**
      * Deletes the edge from the graph,
@@ -96,7 +96,7 @@ public interface DirectedWeightedGraph {
      * @param dest
      * @return the data of the removed edge (null if none).
      */
-    public EdgeData removeEdge(int src, int dest);
+    EdgeData removeEdge(int src, int dest);
 
     /**
      * Returns the number of vertices (nodes) in the graph.
@@ -104,7 +104,7 @@ public interface DirectedWeightedGraph {
      *
      * @return
      */
-    public int nodeSize();
+    int nodeSize();
 
     /**
      * Returns the number of edges (assume directional graph).
@@ -112,12 +112,12 @@ public interface DirectedWeightedGraph {
      *
      * @return
      */
-    public int edgeSize();
+    int edgeSize();
 
     /**
      * Returns the Mode Count - for testing changes in the graph.
      *
      * @return
      */
-    public int getMC();
+    int getMC();
 }

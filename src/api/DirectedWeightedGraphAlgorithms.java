@@ -26,21 +26,21 @@ public interface DirectedWeightedGraphAlgorithms {
      *
      * @param g
      */
-    public void init(DirectedWeightedGraph g);
+    void init(DirectedWeightedGraph g);
 
     /**
      * Returns the underlying graph of which this class works.
      *
      * @return
      */
-    public DirectedWeightedGraph getGraph();
+    DirectedWeightedGraph getGraph();
 
     /**
      * Computes a deep copy of this weighted graph.
      *
      * @return
      */
-    public DirectedWeightedGraph copy();
+    DirectedWeightedGraph copy();
 
     /**
      * Returns true if and only if (iff) there is a valid path from each node to each
@@ -48,7 +48,7 @@ public interface DirectedWeightedGraphAlgorithms {
      *
      * @return
      */
-    public boolean isConnected();
+    boolean isConnected();
 
     /**
      * Computes the length of the shortest path between src to dest
@@ -58,7 +58,7 @@ public interface DirectedWeightedGraphAlgorithms {
      * @param dest - end (target) node
      * @return
      */
-    public double shortestPathDist(int src, int dest);
+    double shortestPathDist(int src, int dest);
 
     /**
      * Computes the the shortest path between src to dest - as an ordered List of nodes:
@@ -70,7 +70,7 @@ public interface DirectedWeightedGraphAlgorithms {
      * @param dest - end (target) node
      * @return
      */
-    public List<NodeData> shortestPath(int src, int dest);
+    List<NodeData> shortestPath(int src, int dest);
 
 
 
@@ -83,5 +83,5 @@ public interface DirectedWeightedGraphAlgorithms {
      * @param file - file name of JSON file
      * @return true - iff the graph was successfully loaded.
      */
-    public boolean load(String file);
+    boolean load(String file);
 }

@@ -10,7 +10,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,15 +30,24 @@ public class GraphDraw extends JPanel {
     ArrayList<Agent> agents;
     ArrayList<Pokemon> pokemons;
     GameManger gm;
+    JButton stopButton;
 
 
     public GraphDraw(GameManger gm) {
+        this.stopButton = new JButton();
         this.gm = gm;
         graph = gm.getGraph();
         this.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
         this.agents = gm.getAgents();
         this.pokemons = gm.getPokemons();
         this.setBorder(border);
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == stopButton)
+                    gm.stop();
+            }
+        });
         importImages();
     }
 
@@ -45,11 +55,28 @@ public class GraphDraw extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         resize();
+        stopButton.setText("Stop");
+        stopButton.setBackground(new Color(255, 32, 15));
+        stopButton.setBounds(this.getWidth() - 150, 50, 100, 50);
         Graphics2D g2d = (Graphics2D) g.create();
+        this.add(stopButton);
         paintBackground(g2d);
         drawGraph(g2d);
+        if(gm.isRunning())
+            drawInfo(g2d);
     }
 
+    private void drawInfo(Graphics2D g2d) {
+        g2d.drawRect(38,12 , 400,25);
+        g2d.setColor(Color.white);
+        g2d.fillRect(38,12 , 400,25);
+        g2d.setFont(new Font("Ariel", Font.BOLD,15));
+        g2d.setColor(new Color(0,0,0));
+        g2d.drawString("  Case: " + gm.getGameServer().getGameLevel() + ", Grade: " + gm.getGameServer().getGrade() + ", Moves: " + gm.getGameServer().getMoves() + ", Time To END: " + TimeToSec(Integer.parseInt(gm.TimeToEnd())), 40, 30);
+    }
+    private static int TimeToSec(int time){
+        return time / 1000;
+    }
     private void drawGraph(Graphics2D g2d) {
         for (Map.Entry<Integer, HashMap<Integer, EdgeData>> entry : graph.getGraph().entrySet()) {
             int nodeKey = entry.getKey();
@@ -85,6 +112,13 @@ public class GraphDraw extends JPanel {
     private void drawAgent(Graphics2D g2d, Agent agent) {
         GeoLocation agentGeoLocation = agent.getPos();
         Point3D agentScreenLocation = (Point3D) range.world2frame(agentGeoLocation);
+        g2d.setColor(new Color(0, 0, 0));
+        g2d.drawRect((int) agentScreenLocation.x() + 7, (int) agentScreenLocation.y() - 78, 85, 68);
+        g2d.setFont(new Font("Ariel", Font.BOLD, 14));
+        g2d.drawString("Id: " + agent.getId(), (int) agentScreenLocation.x() + 10, (int) agentScreenLocation.y() - 60);
+        g2d.drawString("Src: " + agent.getSrc(), (int) agentScreenLocation.x() + 10, (int) agentScreenLocation.y() - 45);
+        g2d.drawString("Dest: " + agent.getDest(), (int) agentScreenLocation.x() + 10, (int) agentScreenLocation.y() - 30);
+        g2d.drawString("Value: " + agent.getValue(), (int) agentScreenLocation.x() + 10, (int) agentScreenLocation.y() - 15);
         g2d.drawImage(agentImage, (int) agentScreenLocation.x() - 20, (int) agentScreenLocation.y() - 15, null, this);
     }
 
@@ -93,23 +127,10 @@ public class GraphDraw extends JPanel {
         GeoLocation d = (GeoLocation) graph.getNodes().get(edge.getDest()).getLocation();
         Point3D sP = (Point3D) range.world2frame(s);
         Point3D dP = (Point3D) range.world2frame(d);
-        g2d.setColor(new Color(173, 122, 68));
-        drawArrow(g2d, (int) sP.x(), (int) sP.y(), (int) dP.x(), (int) dP.y());
+        g2d.setColor(new Color(0, 143, 255));
+        g2d.setStroke(new BasicStroke(3));
+        g2d.drawLine((int)sP.x(), (int) sP.y(),(int)dP.x(),(int)dP.y() );
 
-    }
-
-    private void drawArrow(Graphics2D g2d, int x1, int y1, int x2, int y2) {
-        Graphics2D g = (Graphics2D) g2d.create();
-        double dx = x2 - x1, dy = y2 - y1;
-        double angle = Math.atan2(dy, dx);
-        int len = (int) Math.sqrt(dx * dx + dy * dy);
-        AffineTransform at = AffineTransform.getTranslateInstance(x1, y1);
-        at.concatenate(AffineTransform.getRotateInstance(angle));
-        g.transform(at);
-        int ARR_SIZE = 10;
-        g.setStroke(new BasicStroke(6));
-        g.drawLine(0, 0, len, 0);
-        g.fillPolygon(new int[]{len - 10, len - ARR_SIZE - 20, len - ARR_SIZE - 10, len - 20}, new int[]{0, -ARR_SIZE, ARR_SIZE, 0}, 3);
     }
 
 
@@ -118,14 +139,14 @@ public class GraphDraw extends JPanel {
         Point3D fp = (Point3D) range.world2frame(pos);
         g2d.drawImage(nodePaint, (int) fp.x() - 25, (int) fp.y() - 30, null, this);
         g2d.setFont(new Font("MV Boli", Font.BOLD, 20));
-        g2d.setColor(new Color(120, 35, 255));
+        g2d.setColor(new Color(0, 35, 0));
         g2d.drawString(" " + next.getKey(), (int) fp.x() - 14, (int) fp.y() - 20);
 
     }
 
     private void resize() {
-        Range rx = new Range(35, this.getWidth() - 30);
-        Range ry = new Range(this.getHeight() - 20, 45);
+        Range rx = new Range(50, this.getWidth() - 300);
+        Range ry = new Range(this.getHeight() - 50, 100);
         Range2D frame = new Range2D(rx, ry);
         range = new Range2Range(graphRange(), frame);
     }
@@ -169,7 +190,7 @@ public class GraphDraw extends JPanel {
     public void importImages() {
         try {
 
-            backGround = ImageIO.read(new File("resources/seabackground.jpg"));
+            backGround = ImageIO.read(new File("resources/One-Piece-1000th-Episodes(2).png"));
             agentImage = ImageIO.read(new File("resources/agent.png"));
             nodePaint = ImageIO.read(new File("resources/pirateboat.png"));
             luffy = ImageIO.read(new File("resources/luffy.png"));

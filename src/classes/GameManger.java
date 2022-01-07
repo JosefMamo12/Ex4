@@ -8,12 +8,14 @@ import ex4_java_client.Client;
 import java.util.*;
 
 public class GameManger {
-    public static final double EPS = 0.001, EPS2 = EPS * EPS;
+    public static final double EPS = 0.001, EPS2 = EPS * EPS * EPS;
     private ArrayList<Pokemon> pokemons;
     private ArrayList<Agent> agents;
     private final Client client;
     private final DirectedWeightedGraph graph;
+    private final GameServer gameServer;
     private final DirectedWeightedGraphAlgorithms graphAlgo;
+    private final PriorityQueue<Pokemon> highestPokeValue;
 
     public ArrayList<Pokemon> getPokemons() {
         return pokemons;
@@ -27,22 +29,32 @@ public class GameManger {
         return graphAlgo;
     }
 
-    public GameManger(Client client) {
+    public GameManger(Client client, GameServer gameServer) {
+        this.gameServer = gameServer;
         this.client = client;
         pokemons = new ArrayList<>();
         agents = new ArrayList<>();
         graph = new DirectedWeightedGraph();
         graphAlgo = new DirectedWeightedGraphAlgorithms();
         graphAlgo.init(graph);
+        highestPokeValue = new PriorityQueue<>(new Comparator<Pokemon>() {
+            @Override
+            public int compare(Pokemon o1, Pokemon o2) {
+                return -Double.compare(o1.getValue(), o2.getValue());
+            }
+        });
     }
 
     public void chooseNextEdge(int agentId, int nextNode) {
         client.chooseNextEdge("{\"agent_id\":" + agentId + ", \"next_node_id\":" + nextNode + "}");
-
     }
 
-    public Client getClient() {
-        return client;
+    public GameServer getGameServer() {
+        return gameServer;
+    }
+
+    public void stop() {
+        client.stop();
     }
 
     public void move() {
@@ -87,10 +99,6 @@ public class GameManger {
         return agents;
     }
 
-    public String TimeToEnd() {
-        return client.timeToEnd();
-    }
-
     public static ArrayList<Pokemon> loadPokemons(String pokemonsStr) {
         ArrayList<Pokemon> pokemons = new ArrayList<>();
         JsonParser jp = new JsonParser();
@@ -111,6 +119,10 @@ public class GameManger {
             e.printStackTrace();
         }
         return pokemons;
+    }
+
+    public String TimeToEnd() {
+        return client.timeToEnd();
     }
 
     public static GameServer loadGameServer(String file) {
@@ -165,15 +177,15 @@ public class GameManger {
         }
         if (src > dest) {
             if (p.getType() > 0)
-                p.setEdge(graph.getEdge(src, dest));
-            else {
                 p.setEdge(graph.getEdge(dest, src));
+            else {
+                p.setEdge(graph.getEdge(src, dest));
             }
         } else {
             if (p.getType() > 0) {
-                p.setEdge(graph.getEdge(dest, src));
-            } else {
                 p.setEdge(graph.getEdge(src, dest));
+            } else {
+                p.setEdge(graph.getEdge(dest, src));
             }
         }
     }
@@ -181,6 +193,7 @@ public class GameManger {
     public void upadtePokemons() {
         pokemons = loadPokemons(client.getPokemons());
         for (Pokemon p : pokemons) {
+            highestPokeValue.add(p);
             relatedEdge(p);
         }
     }
@@ -196,12 +209,14 @@ public class GameManger {
 
     public void addAgents(int agentsSize, HashMap<Integer, Integer> agentBool) {
         for (int i = 0; i < agentsSize; i++) {
-            Pokemon p = pokemons.get(i);
+            Pokemon p = highestPokeValue.poll();
+            assert p != null;
             client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");// Intial the agent path
             agentBool.put(i, -1);
         }
     }
-    public String getInfo(){
+
+    public String getInfo() {
         return client.getInfo();
     }
 

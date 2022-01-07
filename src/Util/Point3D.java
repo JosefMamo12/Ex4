@@ -14,7 +14,9 @@ public class Point3D implements api.GeoLocation, Serializable {
      * This field represents the origin point:[0,0,0]
      */
     public static final Point3D ORIGIN = new Point3D(0, 0, 0);
-    private double _x, _y, _z;
+    private final double _x;
+    private final double _y;
+    private final double _z;
 
     public Point3D(double x, double y, double z) {
         _x = x;

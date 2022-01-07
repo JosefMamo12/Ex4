@@ -14,8 +14,8 @@ public class Agent {
     private double value;
     private int src;
     private int dest;
-    private double speed;
-    private GeoLocation pos;
+    private final double speed;
+    private final GeoLocation pos;
     private ArrayList<Integer> agentPath;
     private boolean agentOnAction;
 
@@ -88,8 +88,15 @@ public class Agent {
         return pos;
     }
 
-
-
+    @Override
+    public String toString() {
+        return
+                "id=" + id + "\n" +
+                ", value=" + value + "\n" +
+                ", src=" + src +  "\n" +
+                ", dest=" + dest + "\n" +
+                ", speed=" + speed;
+    }
 }
 
 /**
