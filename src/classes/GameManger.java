@@ -29,6 +29,10 @@ public class GameManger {
         return graphAlgo;
     }
 
+    public void setAgents(ArrayList<Agent> agents) {
+        this.agents = agents;
+    }
+
     public GameManger(Client client, GameServer gameServer) {
         this.gameServer = gameServer;
         this.client = client;
@@ -37,12 +41,7 @@ public class GameManger {
         graph = new DirectedWeightedGraph();
         graphAlgo = new DirectedWeightedGraphAlgorithms();
         graphAlgo.init(graph);
-        highestPokeValue = new PriorityQueue<>(new Comparator<Pokemon>() {
-            @Override
-            public int compare(Pokemon o1, Pokemon o2) {
-                return -Double.compare(o1.getValue(), o2.getValue());
-            }
-        });
+        highestPokeValue = new PriorityQueue<>((o1, o2) -> -Double.compare(o1.getValue(), o2.getValue()));
     }
 
     public void chooseNextEdge(int agentId, int nextNode) {
@@ -189,11 +188,17 @@ public class GameManger {
             }
         }
     }
-
-    public void upadtePokemons() {
+    public void updatePokemonsInit() {
         pokemons = loadPokemons(client.getPokemons());
         for (Pokemon p : pokemons) {
             highestPokeValue.add(p);
+            relatedEdge(p);
+        }
+    }
+
+    public void updatePokemons() {
+        pokemons = loadPokemons(client.getPokemons());
+        for (Pokemon p : pokemons) {
             relatedEdge(p);
         }
     }
@@ -203,7 +208,32 @@ public class GameManger {
         for (Pokemon p : pokemons) {
             relatedEdge(p);
         }
-        agents = loadAgents(client.getAgents());
+        updateAgents();
+
+    }
+
+    @SuppressWarnings("DuplicatedCode")
+    public void updateAgents() {
+        String file = client.getAgents();
+        JsonParser jp = new JsonParser();
+        try {
+            Object obj = jp.parse(file);
+            JsonObject jo = (JsonObject) obj;
+            JsonArray ja = (JsonArray) jo.get("Agents");
+            for (int i = 0; i < ja.size(); i++) {
+                JsonObject agent = (JsonObject) ja.get(i);
+                JsonObject agent1 = (JsonObject) agent.get("Agent");
+                String[] pos_str = agent1.get("pos").getAsString().split(",");
+                double x = Double.parseDouble(pos_str[0]), y = Double.parseDouble(pos_str[1]), z = Double.parseDouble(pos_str[2]);
+                agents.get(i).setSrc(agent1.get("src").getAsInt());
+                agents.get(i).setSpeed(agent1.get("speed").getAsDouble());
+                agents.get(i).setDest(agent1.get("dest").getAsInt());
+                agents.get(i).setPos(new GeoLocation(x, y, z));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
 
     }
 
@@ -211,7 +241,7 @@ public class GameManger {
         for (int i = 0; i < agentsSize; i++) {
             Pokemon p = highestPokeValue.poll();
             assert p != null;
-            client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");// Intial the agent path
+            client.addAgent("{\"id\":" + p.getEdge().getSrc() + "}");// Initial the agent path
             agentBool.put(i, -1);
         }
     }

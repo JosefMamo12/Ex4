@@ -1,18 +1,9 @@
 package classes;
 
-import Gui.GraphDraw;
-import Util.Point3D;
-import Util.Range2Range;
-
-import javax.swing.*;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Pokemon{
-    private double value;
-    private int type;
-    private GeoLocation pos;
+    private final double value;
+    private final int type;
+    private final GeoLocation pos;
     private EdgeData edge;
     private double distance;
 
@@ -30,13 +21,7 @@ public class Pokemon{
         return value;
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
+    public void setDistance(double distance) {this.distance = distance;}
 
     public double getDistance() {
         return distance;
@@ -46,16 +31,8 @@ public class Pokemon{
         return type;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
     public GeoLocation getPos() {
         return pos;
-    }
-
-    public void setPos(GeoLocation pos) {
-        this.pos = pos;
     }
 
     public EdgeData getEdge() {

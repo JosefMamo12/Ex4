@@ -14,20 +14,11 @@ public class Agent {
     private double value;
     private int src;
     private int dest;
-    private final double speed;
-    private final GeoLocation pos;
-    private ArrayList<Integer> agentPath;
-    private boolean agentOnAction;
+    private double speed;
+    private GeoLocation pos;
 
-    public ArrayList<Integer> getAgentPath() {
-        return agentPath;
-    }
 
-    public void setAgentPath(ArrayList<NodeData> agentPath) {
-        for (NodeData n : agentPath) {
-            this.agentPath.add(n.getKey());
-        }
-    }
+
 
     public Agent(int id, double value, int src, int dest, double speed, GeoLocation pos) {
         this.id = id;
@@ -36,16 +27,12 @@ public class Agent {
         this.dest = dest;
         this.speed = speed;
         this.pos = pos;
-        this.agentOnAction = false;
 
     }
 
-    public boolean isAgentOnAction() {
-        return agentOnAction;
-    }
 
-    public void setAgentOnAction(boolean agentOnAction) {
-        this.agentOnAction = agentOnAction;
+    public void setPos(GeoLocation pos) {
+        this.pos = pos;
     }
 
     public int getId() {
@@ -96,6 +83,10 @@ public class Agent {
                 ", src=" + src +  "\n" +
                 ", dest=" + dest + "\n" +
                 ", speed=" + speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }
 
