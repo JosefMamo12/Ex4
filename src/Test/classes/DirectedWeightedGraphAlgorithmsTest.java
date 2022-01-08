@@ -1,10 +1,6 @@
-package Tests;
+package classes;
 
 
-import classes.DirectedWeightedGraph;
-import classes.DirectedWeightedGraphAlgorithms;
-import classes.GeoLocation;
-import classes.NodeData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

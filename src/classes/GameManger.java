@@ -21,6 +21,10 @@ public class GameManger {
         return pokemons;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     public ArrayList<Agent> getAgents() {
         return agents;
     }
@@ -69,7 +73,6 @@ public class GameManger {
     }
 
     public void loadGraph() {
-        System.out.println(client.getGraph());
         graphAlgo.load(client.getGraph());
     }
 

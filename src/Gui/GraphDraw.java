@@ -41,12 +41,9 @@ public class GraphDraw extends JPanel {
         this.agents = gm.getAgents();
         this.pokemons = gm.getPokemons();
         this.setBorder(border);
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == stopButton)
-                    gm.stop();
-            }
+        stopButton.addActionListener(e -> {
+            if (e.getSource() == stopButton)
+                gm.stop();
         });
         importImages();
     }

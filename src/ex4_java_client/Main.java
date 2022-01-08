@@ -22,8 +22,6 @@ public class Main implements Runnable {
         ex4.start();
 
     }
-
-
     private void init() {
         agentDest = new HashMap<>();
         Client client = new Client();

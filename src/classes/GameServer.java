@@ -3,6 +3,10 @@ package classes;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+Represent all the backend game information that the client supply us.
+ */
+
 public class GameServer {
     private int moves;
     private int grade;
