@@ -11,6 +11,7 @@ import java.util.*;
 public class StudentCode implements Runnable {
     int moveCounter = 0;
     int waitingTime = 100;
+    private int centerNode;
     private GameManger gameManger;
     private MyFrame frame;
     private HashMap<Integer, Integer> agentDest;
@@ -35,6 +36,7 @@ public class StudentCode implements Runnable {
         GameServer gameServer = GameManger.loadGameServer(client.getInfo());
         gameManger = new GameManger(client, gameServer);
         gameManger.loadGraph();
+        centerNode = gameManger.getGraphAlgo().center().getKey();
         gameManger.updatePokemonsInit();
         gameManger.addAgents(gameServer.getAgentsSize(), agentDest);
         gameManger.setAgents(GameManger.loadAgents(client.getAgents()));
@@ -117,8 +119,8 @@ public class StudentCode implements Runnable {
             }
         }
         if (lst == null) {
-            LinkedList<EdgeData> list = new LinkedList<>(gameManger.getGraph().getEdgeOut(agent.getSrc()));
-            return list.getFirst().getDest();
+            lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(),centerNode));
+            return lst.get(1).getKey();
         }
         return lst.get(1).getKey();
 
@@ -126,11 +128,6 @@ public class StudentCode implements Runnable {
 
 
     public static class pokemonComp implements Comparator<Pokemon> {
-        @Override
-        public Comparator<Pokemon> reversed() {
-            return Comparator.super.reversed();
-        }
-
         @Override
         public int compare(Pokemon p1, Pokemon p2) {
             return Double.compare(p1.getDistance(), p2.getDistance());
