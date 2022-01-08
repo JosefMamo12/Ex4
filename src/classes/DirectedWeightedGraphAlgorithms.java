@@ -44,12 +44,10 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
             parent.put(curr.getKey(), -1);
             curr.setWeight(inf);
             curr.setTag(0);
-            curr.setInfo("");
         }
         Iterator<EdgeData> edgeDataIterator = g.edgeIter();
         while (edgeDataIterator.hasNext()) {
             EdgeData ed = edgeDataIterator.next();
-            ed.setInfo("");
         }
     }
 
@@ -165,12 +163,8 @@ public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGrap
             List<NodeData> lst = new LinkedList<>();
             while (src != dest) {
                 lst.add(g.getNode(dest));
-                int tempDest = dest;
-                int tempSrc = parent.get(dest);
-                this.g.getEdge(tempSrc, tempDest).setInfo("ToPaint");
-                dest = tempSrc;
+                dest = parent.get(dest);
             }
-            g.getNode(src).setInfo("Path");
             lst.add(g.getNode(src));
             Collections.reverse(lst);
             return lst;

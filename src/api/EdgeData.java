@@ -25,34 +25,6 @@ public interface EdgeData {
      * @return the weight of this edge (positive value).
      */
     double getWeight();
-
-    /**
-     * Returns the remark (meta data) associated with this edge.
-     *
-     * @return
-     */
-    String getInfo();
-
-    /**
-     * Allows changing the remark (meta data) associated with this edge.
-     *
-     * @param s
-     */
-    void setInfo(String s);
-
-    /**
-     * Temporal data (aka color: e,g, white, gray, black)
-     * which can be used be algorithms
-     *
-     * @return
-     */
-    int getTag();
-
-    /**
-     * This method allows setting the "tag" value for temporal marking an edge - common
-     * practice for marking by algorithms.
-     *
-     * @param t - the new value of the tag
-     */
-    void setTag(int t);
 }
+
+

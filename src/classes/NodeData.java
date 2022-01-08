@@ -8,34 +8,15 @@ public class NodeData implements api.NodeData, Comparable<NodeData> {
     private final int key;
     private GeoLocation location;
     private double weight;
-    private String info;
     private int tag;
-    private static int counter = 0;
 
-
-    public NodeData(GeoLocation p){
-        this.key = counter;
-        this.setLocation(p);
-        this.weight = Double.MAX_VALUE;
-        this.info = "";
-        counter++;
-    }
 
     public NodeData(int key, GeoLocation location) {
         this.key = key;
         this.setLocation(location);
         this.weight = Double.MAX_VALUE;
-        this.info = "";
-        counter++;
     }
 
-    public NodeData(NodeData copy) {
-        this.key = copy.key;
-        this.setLocation(copy.getLocation());
-        this.weight = copy.weight;
-        this.info = copy.info;
-        this.tag = copy.tag;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,12 +24,12 @@ public class NodeData implements api.NodeData, Comparable<NodeData> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NodeData nodeData = (NodeData) o;
-        return key == nodeData.key && Double.compare(nodeData.weight, weight) == 0 && tag == nodeData.tag && Objects.equals(getLocation(), nodeData.getLocation()) && Objects.equals(info, nodeData.info);
+        return key == nodeData.key && Double.compare(nodeData.weight, weight) == 0 && tag == nodeData.tag && Objects.equals(getLocation(), nodeData.getLocation());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, getLocation(), weight, info, tag);
+        return Objects.hash(key, getLocation(), weight,  tag);
     }
 
     @Override
@@ -76,15 +57,6 @@ public class NodeData implements api.NodeData, Comparable<NodeData> {
         weight = w;
     }
 
-    @Override
-    public String getInfo() {
-        return this.info;
-    }
-
-    @Override
-    public void setInfo(String s) {
-        this.info = s;
-    }
 
     @Override
     public int getTag() {

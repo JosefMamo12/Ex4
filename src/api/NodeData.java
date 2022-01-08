@@ -47,21 +47,7 @@ public interface NodeData {
      *
      * @return
      */
-    String getInfo();
 
-    /**
-     * Allows changing the remark (metadata) associated with this node.
-     *
-     * @param s
-     */
-    void setInfo(String s);
-
-    /**
-     * Temporal data (aka color: e,g, white, gray, black)
-     * which can be used be algorithms
-     *
-     * @return
-     */
     int getTag();
 
     /**

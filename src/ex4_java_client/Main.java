@@ -96,7 +96,7 @@ public class Main implements Runnable {
     }
 
     private int nextAgent(Agent agent) {
-        PriorityQueue<Pokemon> pq = new PriorityQueue<>(new pokemonComp());
+        PriorityQueue<Pokemon> pq = new PriorityQueue<>((Comparator.comparingDouble(Pokemon::getDistance)));
         for (Pokemon p : gameManger.getPokemons()) {
             gameManger.updatePokemons();
             if (!agentDest.containsValue(p.getEdge().getDest()) || (agent.getDest() != agentDest.get(agent.getId()))) {
@@ -118,18 +118,9 @@ public class Main implements Runnable {
             }
         }
         if (lst == null) {
-            lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(),centerNode));
-            return lst.get(1).getKey();
+            lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(), centerNode));
         }
         return lst.get(1).getKey();
 
-    }
-
-
-    public static class pokemonComp implements Comparator<Pokemon> {
-        @Override
-        public int compare(Pokemon p1, Pokemon p2) {
-            return Double.compare(p1.getDistance(), p2.getDistance());
-        }
     }
 }
