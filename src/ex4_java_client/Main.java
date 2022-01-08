@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.util.*;
 
 
+/**
+ * Main function that's implements runnable interface.
+ * The thread help us to get the information from the server in any time.
+ * and to see the graph components move more flow.
+ */
 public class Main implements Runnable {
     int moveCounter = 0;
     int waitingTime = 100;
@@ -22,6 +27,11 @@ public class Main implements Runnable {
         ex4.start();
 
     }
+
+    /**
+     * Intial all the variables load the graph, load the agents to agents array, load the pokemons,
+     * and load all the graphics.
+     */
     private void init() {
         agentDest = new HashMap<>();
         Client client = new Client();
@@ -68,6 +78,12 @@ public class Main implements Runnable {
         return true;
     }
 
+    /**
+     * This method chose one agent by the agents order and move
+     * the agent to the next edge.
+     * Every ten moves the function decrease the waiting time to 30
+     * to prevent the stuck problem when agent doesn't eat pokemon on the edge.
+     */
     private void moveAgents() {
         if (allAgentGotDest()) {
             gameManger.move();
@@ -93,6 +109,15 @@ public class Main implements Runnable {
 
     }
 
+    /**
+     * Using priority queue to get the shortest distance from the current position of the agent to
+     * all pokemons then pop it from queue and take the shortest path to the source of the edge that contains the pokemon.
+     * The if statement in line 115 avoid the problem of two agents going to the same pokemon.
+     * if the agent not have any destination the agent will go to the center node.
+     *
+     * @param agent -> agent param.
+     * @return -> integer next edge
+     */
     private int nextAgent(Agent agent) {
         PriorityQueue<Pokemon> pq = new PriorityQueue<>((Comparator.comparingDouble(Pokemon::getDistance)));
         for (Pokemon p : gameManger.getPokemons()) {

@@ -7,6 +7,9 @@ import ex4_java_client.Client;
 
 import java.util.*;
 
+/**
+ * Main class controller which connect between the algorithms to the client, and to creating the gui.
+ */
 public class GameManger {
     public static final double EPS = 0.000001;
     private ArrayList<Pokemon> pokemons;
@@ -102,6 +105,11 @@ public class GameManger {
         return agents;
     }
 
+    /**
+     * Simple json reading.
+     * @param  pokemonsStr -> Json string given from client;
+     * @return ArrayList<Pokemon> -> represent all the pokemons in the game.
+     */
     public static ArrayList<Pokemon> loadPokemons(String pokemonsStr) {
         ArrayList<Pokemon> pokemons = new ArrayList<>();
         JsonParser jp = new JsonParser();
@@ -124,10 +132,19 @@ public class GameManger {
         return pokemons;
     }
 
+    /**
+     * We get this information from the client server.
+     * @return -> string time in milliseconds
+     */
     public String TimeToEnd() {
         return client.timeToEnd();
     }
 
+    /**
+     * Simple json reader from the client server.
+     * @param file -> string file that's represent all the information of the game.
+     * @return -> GameServer object
+     */
     public static GameServer loadGameServer(String file) {
         JsonParser jp = new JsonParser();
         int moves = 0;
@@ -153,6 +170,10 @@ public class GameManger {
         return new GameServer(moves, grade, gameLevel, graph, agents);
     }
 
+    /**
+     * Need to allocate edge to pokemon to know if we can eat that specified pokemon.
+     * @param p -> Pokemon
+     */
     public void relatedEdge(Pokemon p) {
         int src = 0, dest = 0;
         for (Map.Entry<Integer, HashMap<Integer, EdgeData>> nodeRunner : graph.getGraph().entrySet()) {

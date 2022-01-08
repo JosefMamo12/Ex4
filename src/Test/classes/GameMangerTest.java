@@ -36,9 +36,7 @@ class GameMangerTest {
         gameServer = GameManger.loadGameServer(client.getInfo());
         gameManger = new GameManger(client, gameServer);
         gameManger.loadGraph();
-
-
-    }
+   }
 
     @AfterEach
     void tearDown() {
