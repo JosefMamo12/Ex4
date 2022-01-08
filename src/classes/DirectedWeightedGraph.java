@@ -5,12 +5,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 /**
- * This class represent the graph object
+ * This class represent the graph object.
  */
 public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     private final HashMap<Integer, NodeData> nodes;
     private final HashMap<Integer, HashSet<Integer>> edgeIn;
-    private final HashMap<Integer, HashSet<EdgeData>> edgeOut;
     private final HashMap<Integer, HashMap<Integer, EdgeData>> graph;
     private int mc;
     private int edgeSize;
@@ -31,7 +30,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     public DirectedWeightedGraph() {
-        this.edgeOut = new HashMap<>();
         this.nodes = new HashMap<>();
         this.graph = new HashMap<>();
         this.edgeIn = new HashMap<>();
@@ -71,7 +69,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     @Override
     public void addNode(@NotNull NodeData n) {
         if (!this.graph.containsKey(n.getKey())) {
-            this.edgeOut.put(n.getKey(), new HashSet<>());
             this.nodes.put(n.getKey(), n);
             this.graph.put(n.getKey(), new HashMap<>());
             this.edgeIn.put(n.getKey(), new HashSet<>());
@@ -98,7 +95,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
             EdgeData e = new EdgeData(src, dest, w);
             this.graph.get(src).put(dest, e);
             this.edgeIn.get(dest).add(src);
-            this.edgeOut.get(src).add(e);
             this.mc++;
             this.edgeSize++;
         } else {
@@ -161,14 +157,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
             }
         };
     }
-
-    public Collection<EdgeData> getEdgeOut(int src) {
-        if (edgeOut.containsKey(src)) {
-            return edgeOut.get(src);
-        }
-        return new HashSet<>();
-    }
-
     /**
      * Iterate over all the edges of the graph
      * using nodeIter() function and edgeIter(int node_id) to save using to another data structure.

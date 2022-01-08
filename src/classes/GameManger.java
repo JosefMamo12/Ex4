@@ -69,6 +69,7 @@ public class GameManger {
     }
 
     public void loadGraph() {
+        System.out.println(client.getGraph());
         graphAlgo.load(client.getGraph());
     }
 

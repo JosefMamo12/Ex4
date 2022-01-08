@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.*;
 
 
-public class StudentCode implements Runnable {
+public class Main implements Runnable {
     int moveCounter = 0;
     int waitingTime = 100;
     private int centerNode;
@@ -18,7 +18,7 @@ public class StudentCode implements Runnable {
 
 
     public static void main(String[] args) {
-        Thread ex4 = new Thread(new StudentCode());
+        Thread ex4 = new Thread(new Main());
         ex4.start();
 
     }
@@ -32,7 +32,6 @@ public class StudentCode implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         GameServer gameServer = GameManger.loadGameServer(client.getInfo());
         gameManger = new GameManger(client, gameServer);
         gameManger.loadGraph();
