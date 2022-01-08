@@ -1,13 +1,5 @@
 package classes;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import java.awt.*;
-import java.util.ArrayList;
-
 
 public class Agent {
     private int id;
@@ -48,7 +40,7 @@ public class Agent {
     }
 
     public void setValue(double value) {
-        this.value += value;
+        this.value = value;
     }
 
     public int getSrc() {
@@ -65,10 +57,6 @@ public class Agent {
 
     public void setDest(int dest) {
         this.dest = dest;
-    }
-
-    public double getSpeed() {
-        return speed;
     }
 
     public GeoLocation getPos() {
@@ -90,26 +78,3 @@ public class Agent {
     }
 }
 
-/**
- * returns: json str of agents. for example:
- *
- * <pre>
- * {
- *     "Agents":[
- *         {
- *             "Agent":
- *             {
- *                 "id":0,
- *                 "value":0.0,
- *                 "src":0,
- *                 "dest":1,
- *                 "speed":1.0,
- *                 "pos":"35.18753053591606,32.10378225882353,0.0"
- *             }
- *         }
- *     ]
- * }
- * </pre>
- *
- * @return json str of agents
- */

@@ -43,14 +43,14 @@ public interface NodeData {
     void setWeight(double w);
 
     /**
-     * Returns the remark (meta data) associated with this node.
+     * Returns the remark (metadata) associated with this node.
      *
      * @return
      */
     String getInfo();
 
     /**
-     * Allows changing the remark (meta data) associated with this node.
+     * Allows changing the remark (metadata) associated with this node.
      *
      * @param s
      */
@@ -65,7 +65,7 @@ public interface NodeData {
     int getTag();
 
     /**
-     * Allows setting the "tag" value for temporal marking an node - common
+     * Allows setting the "tag" value for temporal marking a node - common
      * practice for marking by algorithms.
      *
      * @param t - the new value of the tag

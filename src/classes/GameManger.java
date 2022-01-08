@@ -8,7 +8,7 @@ import ex4_java_client.Client;
 import java.util.*;
 
 public class GameManger {
-    public static final double EPS = 0.001, EPS2 = EPS * EPS * EPS;
+    public static final double EPS = 0.000001;
     private ArrayList<Pokemon> pokemons;
     private ArrayList<Agent> agents;
     private final Client client;
@@ -126,26 +126,18 @@ public class GameManger {
 
     public static GameServer loadGameServer(String file) {
         JsonParser jp = new JsonParser();
-        int pokemons = 0;
-        boolean isLoggedIn = false;
         int moves = 0;
         int grade = 0;
         int gameLevel = 0;
-        int maxUserLevel = 0;
-        float id = 0;
         String graph = "";
         int agents = 0;
         try {
             Object obj = jp.parse(file);
             JsonObject jo = (JsonObject) obj;
             JsonObject ja = (JsonObject) jo.get("GameServer");
-            pokemons = ja.get("pokemons").getAsInt();
-            isLoggedIn = ja.get("is_logged_in").getAsBoolean();
             moves = ja.get("moves").getAsInt();
             grade = ja.get("grade").getAsInt();
             gameLevel = ja.get("game_level").getAsInt();
-            maxUserLevel = ja.get("max_user_level").getAsInt();
-            id = ja.get("id").getAsFloat();
             graph = ja.get("graph").getAsString();
             agents = ja.get("agents").getAsInt();
 
@@ -154,7 +146,7 @@ public class GameManger {
             e.printStackTrace();
 
         }
-        return new GameServer(pokemons, isLoggedIn, moves, grade, gameLevel, maxUserLevel, id, graph, agents);
+        return new GameServer(moves, grade, gameLevel, graph, agents);
     }
 
     public void relatedEdge(Pokemon p) {
@@ -168,7 +160,7 @@ public class GameManger {
                 double fullDist = pSrc.distance(pDest);
                 double sequenceDist = pSrc.distance(pPos) + pPos.distance(pDest);
 
-                if (Math.abs(fullDist - sequenceDist) >= 0 && Math.abs(fullDist - sequenceDist) <= EPS2) {
+                if (Math.abs(fullDist - sequenceDist) >= 0 && Math.abs(fullDist - sequenceDist) <= EPS) {
                     src = edgeRunner.getValue().getSrc();
                     dest = edgeRunner.getValue().getDest();
                 }
@@ -228,6 +220,7 @@ public class GameManger {
                 agents.get(i).setSrc(agent1.get("src").getAsInt());
                 agents.get(i).setSpeed(agent1.get("speed").getAsDouble());
                 agents.get(i).setDest(agent1.get("dest").getAsInt());
+                agents.get(i).setValue(agent1.get("value").getAsDouble());
                 agents.get(i).setPos(new GeoLocation(x, y, z));
             }
         } catch (Exception e) {

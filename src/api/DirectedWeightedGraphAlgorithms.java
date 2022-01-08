@@ -11,11 +11,6 @@ import java.util.List;
  * 2. isConnected(); // strongly (all ordered pais connected)
  * 3. double shortestPathDist(int src, int dest);
  * 4. List<NodeData> shortestPath(int src, int dest);
- * 5. NodeData center(); // finds the NodeData which minimizes the max distance to all the other nodes.
- * // Assuming the graph isConnected, elese return null. See: https://en.wikipedia.org/wiki/Graph_center
- * 6. List<NodeData> tsp(List<NodeData> cities); // computes a list of consecutive nodes which go over all the nodes in cities.
- * // See: https://en.wikipedia.org/wiki/Travelling_salesman_problem
- * 7. save(file); // JSON file
  * 8. load(file); // JSON file
  *
  * @author boaz.benmoshe
@@ -35,20 +30,6 @@ public interface DirectedWeightedGraphAlgorithms {
      */
     DirectedWeightedGraph getGraph();
 
-    /**
-     * Computes a deep copy of this weighted graph.
-     *
-     * @return
-     */
-    DirectedWeightedGraph copy();
-
-    /**
-     * Returns true if and only if (iff) there is a valid path from each node to each
-     * other node. NOTE: assume directional graph (all n*(n-1) ordered pairs).
-     *
-     * @return
-     */
-    boolean isConnected();
 
     /**
      * Computes the length of the shortest path between src to dest
@@ -84,4 +65,14 @@ public interface DirectedWeightedGraphAlgorithms {
      * @return true - iff the graph was successfully loaded.
      */
     boolean load(String file);
+
+    /**
+     * Center of a graph is the set of all vertices of minimum eccentricity,
+     * that is, the set of all vertices u where the greatest distance d(u,v) to other vertices v is minimal.
+     * used the wikipedia - https://en.wikipedia.org/wiki/Graph_center
+     *
+     * @return
+     */
+
+    public NodeData center();
 }

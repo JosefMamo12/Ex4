@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 /**
- * This class repr
+ * This class represent the graph object
  */
 public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     private final HashMap<Integer, NodeData> nodes;
@@ -40,10 +40,9 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     /**
-     * Return  NodeData object by the integar value input
+     * Return  NodeData object by the integer value input
      * return null if not exist.
      * @param key - the node_id
-     * @return
      */
     @Override
     public NodeData getNode(int key) {
@@ -54,9 +53,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Return EdgeData object by giving src value and dest
-     * retun null if not exist.
-     * @param src
-     * @param dest
+     * return null if not exist.
      * @return EdgeData
      */
     @Override
@@ -69,8 +66,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Add new node to the graph,
-     * Igonore if the key already exist.
-     * @param n
+     * Ignore if the key already exist.
      */
     @Override
     public void addNode(@NotNull NodeData n) {
@@ -84,12 +80,12 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     /**
-     * Connect between source and dest and edding as EdgeData object to the graph.
+     * Connect between source and dest and adding as EdgeData object to the graph.
      * Override if the src and dest is already exist at graph.
-     * Throw exceptions when one of the varibels is forbiden.
+     * Throw exceptions when one of the varietals is forbidden.
      * @param src  - the source of the edge.
      * @param dest - the destination of the edge.
-     * @param w    - positive weight representing the cost (aka time, price, etc) between src-->dest.
+     * @param w    - positive weight representing the cost (aka time, price, etc.) between src-->dest.
      */
 
     @Override
@@ -112,9 +108,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Check equal between two graph
-     * Created speacialy to test DirectedWeightedGraphAlgorithm copy function.
-     * @param o
-     * @return
+     * Created specially to test DirectedWeightedGraphAlgorithm copy function.
      */
     @Override
     public boolean equals(Object o) {
@@ -145,13 +139,12 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     /**
-     * Iterating over all varibles of the data structure that contains all the nodes of the graph
+     * Iterating over all variables of the data structure that contains all the nodes of the graph
      * Throw exception when trying to change the graph while iterating.
-     * @return
      */
     @Override
     public Iterator<NodeData> nodeIter() {
-        return new Iterator<NodeData>() {
+        return new Iterator<>() {
             final int iteratorMc = mc;
             final Iterator<NodeData> itr = nodes.values().iterator();
 
@@ -180,11 +173,10 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
      * Iterate over all the edges of the graph
      * using nodeIter() function and edgeIter(int node_id) to save using to another data structure.
      * will throw exception because the use of the related iterators.
-     * @return
      */
     @Override
     public Iterator<EdgeData> edgeIter() {
-        return new Iterator<EdgeData>() {
+        return new Iterator<>() {
             final Iterator<NodeData> it = nodeIter();
             Iterator<EdgeData> edItr;
             boolean flagForHasNext = false;
@@ -196,7 +188,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
                     if (it.hasNext() && !flagForHasNext) {
                         flagForHasNext = true;
                         edItr = edgeIter(it.next().getKey());
-                        if(!edItr.hasNext() && it.hasNext()) {
+                        if (!edItr.hasNext() && it.hasNext()) {
                             edItr = edgeIter(it.next().getKey());
                         }
                     } else if (flagForHasNext) {
@@ -221,13 +213,11 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Iterating over edges of given node.
-     * Throw exception whn trying to changing somthing in graph while iterating.
-     * @param node_id
-     * @return
+     * Throw exception whn trying to change something in graph while iterating.
      */
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
-        return new Iterator<EdgeData>() {
+        return new Iterator<>() {
             final Iterator<EdgeData> it = graph.get(node_id).values().iterator();
             final int itrMc = getMC();
 
@@ -248,10 +238,8 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
     /**
      * Remove of node by given key remove all the edges that out of that node,
-     * remove all the nodes thats get in to this node by using EdgeIn data structure.
+     * remove all the nodes that's get in to this node by using EdgeIn data structure.
      * Returning null if the key is not exist.
-     * @param key
-     * @return
      */
     @Override
     public NodeData removeNode(int key) {
@@ -287,9 +275,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     /**
      * Remove edge by given source and destination.
      * Return null if the edge is not exist.
-     * @param src
-     * @param dest
-     * @return
      */
     @Override
     public EdgeData removeEdge(int src, int dest) {
@@ -305,19 +290,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
     }
 
     /**
-     * Return true if and only if the node contains in the graph if exist
-     * @param node
-     * @return
-     */
-    public boolean contains(int node) {
-        if (nodeSize() > 0)
-            return this.graph.containsKey(node);
-        return false;
-    }
-
-    /**
      * Return the amount of node in the graph.
-     * @return
      */
     @Override
     public int nodeSize() {
@@ -326,7 +299,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Return the amount of edges in the graph.
-     * @return
      */
     @Override
     public int edgeSize() {
@@ -335,7 +307,6 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
 
     /**
      * Return every change in the graph for example remove node, add node, remove edge.
-     * @return
      */
     @Override
     public int getMC() {

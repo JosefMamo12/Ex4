@@ -1,7 +1,6 @@
 package classes;
 
 import api.GeoLocation;
-import org.junit.jupiter.api.function.Executable;
 
 import java.util.Objects;
 

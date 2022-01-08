@@ -1,7 +1,4 @@
-package ex4_java_client; /**
- * @author Joseph Mamo
- * A trivial example for starting the server and running all needed commands
- */
+package ex4_java_client;
 
 
 import Gui.MyFrame;
@@ -56,12 +53,10 @@ public class StudentCode implements Runnable {
             moveAgents();
 
             try {
-
                 Thread.sleep(waitingTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             frame.repaint();
         }
     }
@@ -99,12 +94,12 @@ public class StudentCode implements Runnable {
 
     }
 
-    private synchronized int nextAgent(Agent agent) {
+    private int nextAgent(Agent agent) {
         PriorityQueue<Pokemon> pq = new PriorityQueue<>(new pokemonComp());
         for (Pokemon p : gameManger.getPokemons()) {
             gameManger.updatePokemons();
             if (!agentDest.containsValue(p.getEdge().getDest()) || (agent.getDest() != agentDest.get(agent.getId()))) {
-                double distance = gameManger.getGraphAlgo().shortestPathDist(agent.getSrc(), p.getEdge().getDest());
+                double distance = gameManger.getGraphAlgo().shortestPathDist(agent.getSrc(), p.getEdge().getSrc());
                 p.setDistance(distance);
                 pq.add(p);
             }
@@ -115,7 +110,6 @@ public class StudentCode implements Runnable {
             Pokemon pk = pq.poll();
             agentDest.put(agent.getId(), pk.getEdge().getDest());
             if (agent.getSrc() == pk.getEdge().getSrc()) {
-                agent.setValue(pk.getValue());
                 return pk.getEdge().getDest();
             } else {
                 System.out.println("Agent: " + agent.getId() + " Go to " + pk);
