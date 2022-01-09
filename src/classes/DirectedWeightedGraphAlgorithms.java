@@ -9,7 +9,7 @@ import java.util.*;
  * This class representing a bunch of algorithms which need to work on
  * the DirectedWeightedGraph object.
  */
-public class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGraphAlgorithms {
+public abstract class DirectedWeightedGraphAlgorithms implements api.DirectedWeightedGraphAlgorithms, api.DirectedWeightedGraph {
     private DirectedWeightedGraph g;
     private HashMap<Integer, Integer> parent;
     final double inf = Double.MAX_VALUE;

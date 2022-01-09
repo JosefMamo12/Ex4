@@ -78,6 +78,7 @@ class DirectedWeightedGraphAlgorithmsTest {
         assertEquals(expected, actual.toString());
     }
 
+
     @Test
     void center() {
         DirectedWeightedGraphAlgorithms dwa = new DirectedWeightedGraphAlgorithms();

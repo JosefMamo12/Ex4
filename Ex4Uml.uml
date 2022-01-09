@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/yosim/IdeaProjects/OOP_2021/Assignments/Ex4</OriginalElement>
+  <nodes>
+    <node x="80.66666666666674" y="587.0">Util.Range</node>
+    <node x="725.4583333333334" y="174.0">classes.NodeData</node>
+    <node x="1322.129705681039" y="1633.0">Gui.GraphDraw</node>
+    <node x="2126.879705681039" y="946.0">ex4_java_client.Client</node>
+    <node x="1879.879705681039" y="2086.0">ex4_java_client.Main</node>
+    <node x="803.8333333333334" y="91.0">api.NodeData</node>
+    <node x="16.5" y="1387.0">Util.Range2Range</node>
+    <node x="1390.3978439425036" y="576.0">classes.GeoLocation</node>
+    <node x="1309.9656913073227" y="913.0">classes.Agent</node>
+    <node x="1745.879705681039" y="610.5">api.DirectedWeightedGraphAlgorithms</node>
+    <node x="1853.3978439425036" y="924.0">classes.Pokemon</node>
+    <node x="413.91666666666674" y="946.0">classes.DirectedWeightedGraphTest</node>
+    <node x="728.3333333333333" y="0.0">api.GeoLocation</node>
+    <node x="1437.379705681039" y="2005.0">Gui.MyFrame</node>
+    <node x="1507.6478439425036" y="946.0">classes.DirectedWeightedGraphAlgorithms</node>
+    <node x="1774.4401950718689" y="1321.0">classes.GameManger</node>
+    <node x="1851.4583333333335" y="91.0">api.EdgeData</node>
+    <node x="1999.9583333333335" y="185.0">classes.EdgeData</node>
+    <node x="656.6901950718687" y="1376.0">classes.DirectedWeightedGraphAlgorithmsTest</node>
+    <node x="2512.955681040383" y="924.0">classes.GameServer</node>
+    <node x="10.5" y="957.0">Util.Range2D</node>
+    <node x="2478.132357973989" y="1743.0">classes.GameMangerTest</node>
+    <node x="1540.9401950718689" y="428.0">api.DirectedWeightedGraph</node>
+    <node x="751.3797056810392" y="543.0">classes.DirectedWeightedGraph</node>
+    <node x="231.91666666666697" y="521.0">Util.Point3D</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="34.5" y="-49.0" />
+      <point x="1680.1478439425036" y="881.0" />
+      <point x="1602.1478439425036" y="881.0" />
+      <point x="1602.1478439425036" y="851.0" />
+      <point x="1669.879705681039" y="851.0" />
+      <point x="1669.879705681039" y="489.0" />
+      <point x="1798.129705681039" y="489.0" />
+      <point x="1798.129705681039" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.Agent" relationship="TO_MANY">
+      <point x="0.0" y="-159.0" />
+      <point x="1432.129705681039" y="1601.0" />
+      <point x="658.1297056810392" y="1601.0" />
+      <point x="658.1297056810392" y="1581.0" />
+      <point x="646.1901950718687" y="1581.0" />
+      <point x="646.1901950718687" y="1199.0" />
+      <point x="1288.9656913073227" y="1199.0" />
+      <point x="1288.9656913073227" y="1149.0" />
+      <point x="1333.299024640656" y="1149.0" />
+      <point x="-46.66666666666674" y="82.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.EdgeData" relationship="CREATE">
+      <point x="57.75" y="-49.0" />
+      <point x="587.1666666666667" y="891.0" />
+      <point x="740.8797056810392" y="891.0" />
+      <point x="740.8797056810392" y="366.0" />
+      <point x="1428.2083333333335" y="366.0" />
+      <point x="1428.2083333333335" y="326.0" />
+      <point x="2020.9583333333335" y="326.0" />
+      <point x="-42.0" y="49.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="Gui.MyFrame" relationship="TO_ONE">
+      <point x="-85.0" y="-82.0" />
+      <point x="1922.379705681039" y="2065.0" />
+      <point x="1427.129705681039" y="2065.0" />
+      <point x="1427.129705681039" y="2055.0" />
+      <point x="1464.879705681039" y="2055.0" />
+      <point x="-27.5" y="14.5" />
+    </edge>
+    <edge source="classes.Pokemon" target="classes.EdgeData" relationship="TO_ONE">
+      <point x="35.0" y="-71.0" />
+      <point x="1958.3978439425036" y="891.0" />
+      <point x="1898.8978439425036" y="891.0" />
+      <point x="1898.8978439425036" y="881.0" />
+      <point x="2041.379705681039" y="881.0" />
+      <point x="2041.379705681039" y="366.0" />
+      <point x="2104.9583333333335" y="366.0" />
+      <point x="42.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraph" target="classes.EdgeData" relationship="CREATE">
+      <point x="-44.499999999999886" y="-82.0" />
+      <point x="884.8797056810394" y="499.0" />
+      <point x="957.9583333333334" y="499.0" />
+      <point x="957.9583333333334" y="366.0" />
+      <point x="1428.2083333333335" y="366.0" />
+      <point x="1428.2083333333335" y="326.0" />
+      <point x="2020.9583333333335" y="326.0" />
+      <point x="-42.0" y="49.0" />
+    </edge>
+    <edge source="classes.EdgeData" target="api.EdgeData" relationship="REALIZATION">
+      <point x="0.0" y="-49.0" />
+      <point x="2062.9583333333335" y="147.0" />
+      <point x="1935.4583333333335" y="147.0" />
+      <point x="28.0" y="14.5" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.GameServer" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1229.0" />
+      <point x="2589.440195071869" y="1229.0" />
+      <point x="2589.440195071869" y="1099.0" />
+      <point x="2576.955681040383" y="1099.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraph" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="44.500000000000114" y="-82.0" />
+      <point x="973.8797056810394" y="499.0" />
+      <point x="968.9583333333334" y="499.0" />
+      <point x="968.9583333333334" y="386.0" />
+      <point x="1914.9583333333335" y="386.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="classes.Agent" target="classes.GeoLocation" relationship="TO_ONE">
+      <point x="35.0" y="-82.0" />
+      <point x="1414.9656913073227" y="841.0" />
+      <point x="1659.379705681039" y="841.0" />
+      <point x="1659.379705681039" y="751.0" />
+      <point x="1500.3978439425036" y="751.0" />
+      <point x="44.0" y="49.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.DirectedWeightedGraph" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1119.0" />
+      <point x="1460.4656913073227" y="1119.0" />
+      <point x="1460.4656913073227" y="861.0" />
+      <point x="718.4401950718687" y="861.0" />
+      <point x="718.4401950718687" y="771.0" />
+      <point x="810.7130390143726" y="771.0" />
+      <point x="-118.66666666666663" y="82.0" />
+    </edge>
+    <edge source="Gui.MyFrame" target="classes.GameManger" relationship="DEPENDENCY">
+      <point x="27.5" y="-14.5" />
+      <point x="1519.879705681039" y="1978.0" />
+      <point x="1953.4401950718689" y="1978.0" />
+      <point x="1953.4401950718689" y="1561.0" />
+      <point x="1922.9401950718689" y="1561.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.GeoLocation" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1139.0" />
+      <point x="1299.4656913073227" y="1139.0" />
+      <point x="1299.4656913073227" y="801.0" />
+      <point x="1401.6478439425036" y="801.0" />
+      <point x="1401.6478439425036" y="761.0" />
+      <point x="1412.3978439425036" y="761.0" />
+      <point x="-44.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="api.DirectedWeightedGraph" relationship="REALIZATION">
+      <point x="103.5" y="-49.0" />
+      <point x="1749.1478439425036" y="871.0" />
+      <point x="1659.4656913073227" y="871.0" />
+      <point x="1659.4656913073227" y="861.0" />
+      <point x="1680.879705681039" y="861.0" />
+      <point x="1680.879705681039" y="499.0" />
+      <point x="1508.9401950718689" y="499.0" />
+      <point x="1508.9401950718689" y="479.0" />
+      <point x="1591.6901950718689" y="479.0" />
+      <point x="-50.75" y="14.5" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.GameServer" relationship="TO_ONE">
+      <point x="0.0" y="-49.0" />
+      <point x="2609.132357973989" y="1611.0" />
+      <point x="2580.7083333333335" y="1611.0" />
+      <point x="2580.7083333333335" y="1239.0" />
+      <point x="2589.440195071869" y="1239.0" />
+      <point x="2589.440195071869" y="1099.0" />
+      <point x="2576.955681040383" y="1099.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="Util.Range2D" target="api.GeoLocation" relationship="DEPENDENCY">
+      <point x="-44.0" y="-38.0" />
+      <point x="32.5" y="891.0" />
+      <point x="65.85617727583713" y="891.0" />
+      <point x="65.85617727583713" y="70.0" />
+      <point x="379.29902464065617" y="70.0" />
+      <point x="379.29902464065617" y="50.0" />
+      <point x="749.9999999999999" y="50.0" />
+      <point x="-43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1219.7156913073227" y="1551.0" />
+      <point x="1219.7156913073227" y="791.0" />
+      <point x="1379.8978439425036" y="791.0" />
+      <point x="1379.8978439425036" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.DirectedWeightedGraphAlgorithms" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2092.940195071869" y="2055.0" />
+      <point x="2092.940195071869" y="1199.0" />
+      <point x="1737.6478439425036" y="1199.0" />
+      <point x="92.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.DirectedWeightedGraph" relationship="TO_ONE">
+      <point x="-75.25" y="-49.0" />
+      <point x="731.9401950718687" y="1299.0" />
+      <point x="280.75470568103924" y="1299.0" />
+      <point x="280.75470568103924" y="861.0" />
+      <point x="718.4401950718687" y="861.0" />
+      <point x="718.4401950718687" y="771.0" />
+      <point x="810.7130390143726" y="771.0" />
+      <point x="-118.66666666666663" y="82.0" />
+    </edge>
+    <edge source="Util.Range2D" target="Util.Range" relationship="CREATE">
+      <point x="44.0" y="-38.0" />
+      <point x="120.5" y="891.0" />
+      <point x="101.5" y="891.0" />
+      <point x="101.5" y="841.0" />
+      <point x="190.41666666666674" y="841.0" />
+      <point x="190.41666666666674" y="831.0" />
+      <point x="169.16666666666674" y="831.0" />
+      <point x="29.5" y="38.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1200.379705681039" y="1551.0" />
+      <point x="1200.379705681039" y="386.0" />
+      <point x="1914.9583333333335" y="386.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.Pokemon" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1375.879705681039" y="1551.0" />
+      <point x="1375.879705681039" y="1259.0" />
+      <point x="2621.440195071869" y="1259.0" />
+      <point x="2621.440195071869" y="1109.0" />
+      <point x="1970.0645106091706" y="1109.0" />
+      <point x="46.66666666666674" y="71.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.Agent" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1375.879705681039" y="1551.0" />
+      <point x="1375.879705681039" y="1269.0" />
+      <point x="2511.0645106091706" y="1269.0" />
+      <point x="2511.0645106091706" y="1129.0" />
+      <point x="1426.6323579739894" y="1129.0" />
+      <point x="46.66666666666674" y="82.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.DirectedWeightedGraph" relationship="CREATE">
+      <point x="75.25" y="-49.0" />
+      <point x="882.4401950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1179.0" />
+      <point x="715.5416666666667" y="1179.0" />
+      <point x="715.5416666666667" y="871.0" />
+      <point x="929.3797056810392" y="871.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="api.NodeData" target="api.GeoLocation" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="861.3333333333334" y="70.0" />
+      <point x="379.29902464065617" y="70.0" />
+      <point x="379.29902464065617" y="50.0" />
+      <point x="749.9999999999999" y="50.0" />
+      <point x="-43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="87.33333333333348" y="-49.0" />
+      <point x="2696.465691307323" y="1611.0" />
+      <point x="2636.690195071869" y="1611.0" />
+      <point x="2636.690195071869" y="1601.0" />
+      <point x="2655.2083333333335" y="1601.0" />
+      <point x="2655.2083333333335" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.NodeData" relationship="TO_ONE">
+      <point x="-75.25" y="-49.0" />
+      <point x="731.9401950718687" y="1299.0" />
+      <point x="280.75470568103924" y="1299.0" />
+      <point x="280.75470568103924" y="1289.0" />
+      <point x="221.41666666666674" y="1289.0" />
+      <point x="221.41666666666674" y="406.0" />
+      <point x="590.3406913073227" y="406.0" />
+      <point x="590.3406913073227" y="356.0" />
+      <point x="752.7916666666667" y="356.0" />
+      <point x="-54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="99.0" y="-104.0" />
+      <point x="2021.9401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1209.0" />
+      <point x="2116.379705681039" y="1209.0" />
+      <point x="2116.379705681039" y="386.0" />
+      <point x="1914.9583333333335" y="386.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="Util.Range2D" relationship="CREATE">
+      <point x="-73.33333333333326" y="-159.0" />
+      <point x="1358.796372347706" y="1611.0" />
+      <point x="86.5" y="1611.0" />
+      <point x="86.5" y="1601.0" />
+      <point x="4.833333333333485" y="1601.0" />
+      <point x="4.833333333333485" y="1289.0" />
+      <point x="43.5" y="1289.0" />
+      <point x="-33.0" y="38.0" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.GameServer" relationship="DEPENDENCY">
+      <point x="87.33333333333348" y="-49.0" />
+      <point x="2696.465691307323" y="1611.0" />
+      <point x="2636.690195071869" y="1611.0" />
+      <point x="2636.690195071869" y="1601.0" />
+      <point x="2631.440195071869" y="1601.0" />
+      <point x="2631.440195071869" y="1099.0" />
+      <point x="2619.62234770705" y="1099.0" />
+      <point x="42.666666666666515" y="71.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.NodeData" relationship="TO_ONE">
+      <point x="-57.75" y="-49.0" />
+      <point x="471.66666666666674" y="891.0" />
+      <point x="513.4166666666669" y="891.0" />
+      <point x="513.4166666666669" y="781.0" />
+      <point x="496.73117727583735" y="781.0" />
+      <point x="496.73117727583735" y="406.0" />
+      <point x="590.3406913073227" y="406.0" />
+      <point x="590.3406913073227" y="356.0" />
+      <point x="752.7916666666667" y="356.0" />
+      <point x="-54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.GameManger" relationship="TO_ONE">
+      <point x="-85.0" y="-82.0" />
+      <point x="1922.379705681039" y="2065.0" />
+      <point x="1427.129705681039" y="2065.0" />
+      <point x="1427.129705681039" y="2055.0" />
+      <point x="978.6901950718687" y="2055.0" />
+      <point x="978.6901950718687" y="1561.0" />
+      <point x="1823.9401950718689" y="1561.0" />
+      <point x="-99.0" y="104.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.GameServer" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2750.632357973989" y="2055.0" />
+      <point x="2750.632357973989" y="1249.0" />
+      <point x="2631.440195071869" y="1249.0" />
+      <point x="2631.440195071869" y="1099.0" />
+      <point x="2619.62234770705" y="1099.0" />
+      <point x="42.666666666666515" y="71.0" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.GameManger" relationship="TO_ONE">
+      <point x="0.0" y="-49.0" />
+      <point x="2609.132357973989" y="1611.0" />
+      <point x="2580.7083333333335" y="1611.0" />
+      <point x="2580.7083333333335" y="1571.0" />
+      <point x="978.6901950718687" y="1571.0" />
+      <point x="978.6901950718687" y="1561.0" />
+      <point x="1823.9401950718689" y="1561.0" />
+      <point x="-99.0" y="104.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.Pokemon" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1139.0" />
+      <point x="1876.7311772758371" y="1139.0" />
+      <point x="-46.66666666666674" y="71.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="Util.Point3D" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1034.7083333333335" y="1551.0" />
+      <point x="1034.7083333333335" y="881.0" />
+      <point x="352.66666666666697" y="881.0" />
+      <point x="40.25" y="104.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2750.632357973989" y="2055.0" />
+      <point x="2750.632357973989" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraph" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1642.4401950718689" y="406.0" />
+      <point x="1734.9583333333335" y="406.0" />
+      <point x="1734.9583333333335" y="346.0" />
+      <point x="1914.9583333333335" y="346.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.GameServer" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1763.9401950718689" y="1551.0" />
+      <point x="1763.9401950718689" y="1249.0" />
+      <point x="2631.440195071869" y="1249.0" />
+      <point x="2631.440195071869" y="1099.0" />
+      <point x="2619.62234770705" y="1099.0" />
+      <point x="42.666666666666515" y="71.0" />
+    </edge>
+    <edge source="classes.NodeData" target="api.NodeData" relationship="REALIZATION">
+      <point x="54.66666666666663" y="-60.0" />
+      <point x="862.125" y="147.0" />
+      <point x="832.5833333333334" y="147.0" />
+      <point x="-28.75" y="14.5" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="ex4_java_client.Client" relationship="CREATE">
+      <point x="-87.33333333333348" y="-49.0" />
+      <point x="2521.799024640656" y="1611.0" />
+      <point x="2543.6478439425036" y="1611.0" />
+      <point x="2543.6478439425036" y="1219.0" />
+      <point x="2569.7083333333335" y="1219.0" />
+      <point x="2569.7083333333335" y="1099.0" />
+      <point x="2253.5463723477055" y="1099.0" />
+      <point x="50.666666666666515" y="49.0" />
+    </edge>
+    <edge source="Util.Range2Range" target="api.GeoLocation" relationship="DEPENDENCY">
+      <point x="-46.66666666666666" y="-38.0" />
+      <point x="39.83333333333326" y="1299.0" />
+      <point x="76.5" y="1299.0" />
+      <point x="76.5" y="1279.0" />
+      <point x="0.0" y="1279.0" />
+      <point x="0.0" y="70.0" />
+      <point x="379.29902464065617" y="70.0" />
+      <point x="379.29902464065617" y="50.0" />
+      <point x="749.9999999999999" y="50.0" />
+      <point x="-43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraph" target="api.DirectedWeightedGraph" relationship="REALIZATION">
+      <point x="133.50000000000023" y="-82.0" />
+      <point x="1062.8797056810395" y="499.0" />
+      <point x="1508.9401950718689" y="499.0" />
+      <point x="1508.9401950718689" y="479.0" />
+      <point x="1591.6901950718689" y="479.0" />
+      <point x="-50.75" y="14.5" />
+    </edge>
+    <edge source="classes.NodeData" target="api.GeoLocation" relationship="DEPENDENCY">
+      <point x="-54.66666666666663" y="-60.0" />
+      <point x="752.7916666666667" y="147.0" />
+      <point x="782.3333333333333" y="147.0" />
+      <point x="782.3333333333333" y="70.0" />
+      <point x="379.29902464065617" y="70.0" />
+      <point x="379.29902464065617" y="50.0" />
+      <point x="749.9999999999999" y="50.0" />
+      <point x="-43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="Util.Range2Range" relationship="TO_ONE">
+      <point x="0.0" y="-159.0" />
+      <point x="1432.129705681039" y="1601.0" />
+      <point x="658.1297056810392" y="1601.0" />
+      <point x="658.1297056810392" y="1581.0" />
+      <point x="121.5" y="1581.0" />
+      <point x="35.0" y="38.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.GameServer" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1139.0" />
+      <point x="2534.2890143737163" y="1139.0" />
+      <point x="-42.666666666666515" y="71.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="ex4_java_client.Client" relationship="CREATE">
+      <point x="0.0" y="-82.0" />
+      <point x="2007.379705681039" y="2055.0" />
+      <point x="2081.940195071869" y="2055.0" />
+      <point x="2081.940195071869" y="1219.0" />
+      <point x="2569.7083333333335" y="1219.0" />
+      <point x="2569.7083333333335" y="1099.0" />
+      <point x="2253.5463723477055" y="1099.0" />
+      <point x="50.666666666666515" y="49.0" />
+    </edge>
+    <edge source="classes.GameManger" target="ex4_java_client.Client" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1119.0" />
+      <point x="2152.2130390143725" y="1119.0" />
+      <point x="-50.666666666666515" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="api.DirectedWeightedGraphAlgorithms" relationship="REALIZATION">
+      <point x="103.5" y="-49.0" />
+      <point x="1749.1478439425036" y="871.0" />
+      <point x="1659.4656913073227" y="871.0" />
+      <point x="1659.4656913073227" y="861.0" />
+      <point x="1882.879705681039" y="861.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.Pokemon" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2750.632357973989" y="2055.0" />
+      <point x="2750.632357973989" y="1259.0" />
+      <point x="2621.440195071869" y="1259.0" />
+      <point x="2621.440195071869" y="1109.0" />
+      <point x="1970.0645106091706" y="1109.0" />
+      <point x="46.66666666666674" y="71.0" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.Pokemon" relationship="DEPENDENCY">
+      <point x="87.33333333333348" y="-49.0" />
+      <point x="2696.465691307323" y="1611.0" />
+      <point x="2636.690195071869" y="1611.0" />
+      <point x="2636.690195071869" y="1601.0" />
+      <point x="2621.440195071869" y="1601.0" />
+      <point x="2621.440195071869" y="1109.0" />
+      <point x="1970.0645106091706" y="1109.0" />
+      <point x="46.66666666666674" y="71.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraph" target="api.EdgeData" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1642.4401950718689" y="406.0" />
+      <point x="1734.9583333333335" y="406.0" />
+      <point x="1734.9583333333335" y="316.0" />
+      <point x="1743.9401950718689" y="316.0" />
+      <point x="1743.9401950718689" y="147.0" />
+      <point x="1879.4583333333335" y="147.0" />
+      <point x="-28.0" y="14.5" />
+    </edge>
+    <edge source="Util.Range2D" target="Util.Point3D" relationship="CREATE">
+      <point x="44.0" y="-38.0" />
+      <point x="120.5" y="891.0" />
+      <point x="101.5" y="891.0" />
+      <point x="101.5" y="851.0" />
+      <point x="272.16666666666697" y="851.0" />
+      <point x="-40.25" y="104.0" />
+    </edge>
+    <edge source="classes.NodeData" target="api.GeoLocation" relationship="TO_ONE">
+      <point x="0.0" y="-60.0" />
+      <point x="807.4583333333334" y="147.0" />
+      <point x="793.3333333333333" y="147.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="classes.Pokemon" target="classes.GeoLocation" relationship="DEPENDENCY">
+      <point x="-35.0" y="-71.0" />
+      <point x="1888.3978439425036" y="771.0" />
+      <point x="1465.8978439425036" y="771.0" />
+      <point x="1465.8978439425036" y="761.0" />
+      <point x="1456.3978439425036" y="761.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.DirectedWeightedGraphAlgorithms" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1179.0" />
+      <point x="1267.9656913073227" y="1179.0" />
+      <point x="1267.9656913073227" y="1159.0" />
+      <point x="1553.6478439425036" y="1159.0" />
+      <point x="-92.0" y="49.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraphAlgorithms" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1882.879705681039" y="386.0" />
+      <point x="1914.9583333333335" y="386.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.GameManger" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1581.0" />
+      <point x="1953.4401950718689" y="1581.0" />
+      <point x="1953.4401950718689" y="1561.0" />
+      <point x="1922.9401950718689" y="1561.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="Util.Point3D" target="api.GeoLocation" relationship="REALIZATION">
+      <point x="0.0" y="-104.0" />
+      <point x="312.41666666666697" y="60.0" />
+      <point x="1617.2083333333335" y="60.0" />
+      <point x="1617.2083333333335" y="50.0" />
+      <point x="836.6666666666666" y="50.0" />
+      <point x="43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="Util.Range2Range" target="Util.Range2D" relationship="CREATE">
+      <point x="0.0" y="-38.0" />
+      <point x="86.5" y="1289.0" />
+      <point x="43.5" y="1289.0" />
+      <point x="-33.0" y="38.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraph" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1642.4401950718689" y="406.0" />
+      <point x="1734.9583333333335" y="406.0" />
+      <point x="1734.9583333333335" y="356.0" />
+      <point x="2062.9583333333335" y="356.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.DirectedWeightedGraph" relationship="TO_ONE">
+      <point x="0.0" y="-159.0" />
+      <point x="1432.129705681039" y="1601.0" />
+      <point x="658.1297056810392" y="1601.0" />
+      <point x="658.1297056810392" y="1581.0" />
+      <point x="210.41666666666674" y="1581.0" />
+      <point x="210.41666666666674" y="861.0" />
+      <point x="718.4401950718687" y="861.0" />
+      <point x="718.4401950718687" y="771.0" />
+      <point x="810.7130390143726" y="771.0" />
+      <point x="-118.66666666666663" y="82.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.Agent" relationship="TO_MANY">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1169.0" />
+      <point x="1288.9656913073227" y="1169.0" />
+      <point x="1288.9656913073227" y="1149.0" />
+      <point x="1333.299024640656" y="1149.0" />
+      <point x="-46.66666666666674" y="82.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="Gui.MyFrame" relationship="CREATE">
+      <point x="0.0" y="-82.0" />
+      <point x="2007.379705681039" y="2055.0" />
+      <point x="1519.879705681039" y="2055.0" />
+      <point x="27.5" y="14.5" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.DirectedWeightedGraph" relationship="CREATE">
+      <point x="57.75" y="-49.0" />
+      <point x="587.1666666666667" y="891.0" />
+      <point x="740.8797056810392" y="891.0" />
+      <point x="740.8797056810392" y="791.0" />
+      <point x="929.3797056810392" y="791.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="Util.Range2Range" target="Util.Point3D" relationship="DEPENDENCY">
+      <point x="-46.66666666666666" y="-38.0" />
+      <point x="39.83333333333326" y="1299.0" />
+      <point x="76.5" y="1299.0" />
+      <point x="76.5" y="1279.0" />
+      <point x="153.0" y="1279.0" />
+      <point x="153.0" y="881.0" />
+      <point x="352.66666666666697" y="881.0" />
+      <point x="40.25" y="104.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraph" target="api.NodeData" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1642.4401950718689" y="406.0" />
+      <point x="1734.9583333333335" y="406.0" />
+      <point x="1734.9583333333335" y="316.0" />
+      <point x="1729.9583333333335" y="316.0" />
+      <point x="1729.9583333333335" y="147.0" />
+      <point x="890.0833333333334" y="147.0" />
+      <point x="28.75" y="14.5" />
+    </edge>
+    <edge source="Util.Range2D" target="Util.Range" relationship="TO_ONE">
+      <point x="0.0" y="-38.0" />
+      <point x="76.5" y="831.0" />
+      <point x="110.16666666666674" y="831.0" />
+      <point x="-29.5" y="38.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.DirectedWeightedGraphAlgorithms" relationship="CREATE">
+      <point x="75.25" y="-49.0" />
+      <point x="882.4401950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1189.0" />
+      <point x="1267.9656913073227" y="1189.0" />
+      <point x="1267.9656913073227" y="1159.0" />
+      <point x="1553.6478439425036" y="1159.0" />
+      <point x="-92.0" y="49.0" />
+    </edge>
+    <edge source="classes.GameManger" target="ex4_java_client.Client" relationship="DEPENDENCY">
+      <point x="99.0" y="-104.0" />
+      <point x="2021.9401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1209.0" />
+      <point x="2202.879705681039" y="1209.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.GeoLocation" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1278.4656913073227" y="1551.0" />
+      <point x="1278.4656913073227" y="831.0" />
+      <point x="1465.8978439425036" y="831.0" />
+      <point x="1465.8978439425036" y="761.0" />
+      <point x="1456.3978439425036" y="761.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.DirectedWeightedGraph" relationship="TO_ONE">
+      <point x="-57.75" y="-49.0" />
+      <point x="471.66666666666674" y="891.0" />
+      <point x="513.4166666666669" y="891.0" />
+      <point x="513.4166666666669" y="791.0" />
+      <point x="718.4401950718687" y="791.0" />
+      <point x="718.4401950718687" y="771.0" />
+      <point x="810.7130390143726" y="771.0" />
+      <point x="-118.66666666666663" y="82.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.DirectedWeightedGraph" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1139.0" />
+      <point x="1299.4656913073227" y="1139.0" />
+      <point x="1299.4656913073227" y="871.0" />
+      <point x="929.3797056810392" y="871.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.DirectedWeightedGraph" relationship="DEPENDENCY">
+      <point x="73.33333333333326" y="-159.0" />
+      <point x="1505.4630390143725" y="1591.0" />
+      <point x="1259.129705681039" y="1591.0" />
+      <point x="1259.129705681039" y="1551.0" />
+      <point x="1257.4656913073227" y="1551.0" />
+      <point x="1257.4656913073227" y="821.0" />
+      <point x="1433.1478439425036" y="821.0" />
+      <point x="1433.1478439425036" y="771.0" />
+      <point x="1048.046372347706" y="771.0" />
+      <point x="118.66666666666674" y="82.0" />
+    </edge>
+    <edge source="Util.Range2Range" target="Util.Range2D" relationship="TO_ONE">
+      <point x="46.66666666666666" y="-38.0" />
+      <point x="133.16666666666674" y="1299.0" />
+      <point x="109.5" y="1299.0" />
+      <point x="33.0" y="38.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.GeoLocation" relationship="CREATE">
+      <point x="75.25" y="-49.0" />
+      <point x="882.4401950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1179.0" />
+      <point x="715.5416666666667" y="1179.0" />
+      <point x="715.5416666666667" y="801.0" />
+      <point x="1401.6478439425036" y="801.0" />
+      <point x="1401.6478439425036" y="761.0" />
+      <point x="1412.3978439425036" y="761.0" />
+      <point x="-44.0" y="49.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.Pokemon" relationship="TO_MANY">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1219.0" />
+      <point x="1672.7083333333335" y="1219.0" />
+      <point x="1672.7083333333335" y="1109.0" />
+      <point x="1923.3978439425036" y="1109.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.GameManger" relationship="CREATE">
+      <point x="-87.33333333333348" y="-49.0" />
+      <point x="2521.799024640656" y="1611.0" />
+      <point x="2543.6478439425036" y="1611.0" />
+      <point x="2543.6478439425036" y="1601.0" />
+      <point x="2007.379705681039" y="1601.0" />
+      <point x="2007.379705681039" y="1561.0" />
+      <point x="2021.9401950718689" y="1561.0" />
+      <point x="99.0" y="104.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="Util.Range" relationship="CREATE">
+      <point x="-73.33333333333326" y="-159.0" />
+      <point x="1358.796372347706" y="1611.0" />
+      <point x="86.5" y="1611.0" />
+      <point x="86.5" y="1601.0" />
+      <point x="190.41666666666674" y="1601.0" />
+      <point x="190.41666666666674" y="831.0" />
+      <point x="169.16666666666674" y="831.0" />
+      <point x="29.5" y="38.0" />
+    </edge>
+    <edge source="api.DirectedWeightedGraphAlgorithms" target="api.DirectedWeightedGraph" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="1882.879705681039" y="479.0" />
+      <point x="1693.1901950718689" y="479.0" />
+      <point x="50.75" y="14.5" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="classes.GeoLocation" relationship="CREATE">
+      <point x="-34.5" y="-49.0" />
+      <point x="1611.1478439425036" y="891.0" />
+      <point x="1581.6478439425036" y="891.0" />
+      <point x="1581.6478439425036" y="791.0" />
+      <point x="1401.6478439425036" y="791.0" />
+      <point x="1401.6478439425036" y="761.0" />
+      <point x="1412.3978439425036" y="761.0" />
+      <point x="-44.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithmsTest" target="classes.NodeData" relationship="CREATE">
+      <point x="75.25" y="-49.0" />
+      <point x="882.4401950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1289.0" />
+      <point x="635.6901950718687" y="1179.0" />
+      <point x="403.41666666666697" y="1179.0" />
+      <point x="403.41666666666697" y="396.0" />
+      <point x="807.4583333333334" y="396.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="classes.Pokemon" target="classes.GeoLocation" relationship="TO_ONE">
+      <point x="35.0" y="-71.0" />
+      <point x="1958.3978439425036" y="891.0" />
+      <point x="1898.8978439425036" y="891.0" />
+      <point x="1898.8978439425036" y="761.0" />
+      <point x="1659.379705681039" y="761.0" />
+      <point x="1659.379705681039" y="751.0" />
+      <point x="1500.3978439425036" y="751.0" />
+      <point x="44.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="classes.DirectedWeightedGraph" relationship="TO_ONE">
+      <point x="-103.5" y="-49.0" />
+      <point x="1542.1478439425036" y="861.0" />
+      <point x="718.4401950718687" y="861.0" />
+      <point x="718.4401950718687" y="771.0" />
+      <point x="810.7130390143726" y="771.0" />
+      <point x="-118.66666666666663" y="82.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.DirectedWeightedGraphAlgorithms" relationship="TO_ONE">
+      <point x="0.0" y="-104.0" />
+      <point x="1922.9401950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1289.0" />
+      <point x="1656.6901950718689" y="1119.0" />
+      <point x="1645.6478439425036" y="1119.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.GameManger" relationship="TO_ONE">
+      <point x="0.0" y="-159.0" />
+      <point x="1432.129705681039" y="1601.0" />
+      <point x="658.1297056810392" y="1601.0" />
+      <point x="658.1297056810392" y="1591.0" />
+      <point x="978.6901950718687" y="1591.0" />
+      <point x="978.6901950718687" y="1561.0" />
+      <point x="1823.9401950718689" y="1561.0" />
+      <point x="-99.0" y="104.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.Agent" relationship="CREATE">
+      <point x="-99.0" y="-104.0" />
+      <point x="1823.9401950718689" y="1299.0" />
+      <point x="1320.3978439425036" y="1299.0" />
+      <point x="1320.3978439425036" y="1139.0" />
+      <point x="1379.9656913073227" y="1139.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="Util.Range2Range" relationship="CREATE">
+      <point x="-73.33333333333326" y="-159.0" />
+      <point x="1358.796372347706" y="1611.0" />
+      <point x="86.5" y="1611.0" />
+      <point x="86.5" y="1601.0" />
+      <point x="51.5" y="1601.0" />
+      <point x="-35.0" y="38.0" />
+    </edge>
+    <edge source="classes.GameManger" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="99.0" y="-104.0" />
+      <point x="2021.9401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1279.0" />
+      <point x="1753.4401950718689" y="1209.0" />
+      <point x="2289.379705681039" y="1209.0" />
+      <point x="2289.379705681039" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Gui.GraphDraw" target="classes.Pokemon" relationship="TO_MANY">
+      <point x="0.0" y="-159.0" />
+      <point x="1432.129705681039" y="1601.0" />
+      <point x="658.1297056810392" y="1601.0" />
+      <point x="658.1297056810392" y="1581.0" />
+      <point x="968.1901950718687" y="1581.0" />
+      <point x="968.1901950718687" y="1209.0" />
+      <point x="1672.7083333333335" y="1209.0" />
+      <point x="1672.7083333333335" y="1109.0" />
+      <point x="1923.3978439425036" y="1109.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="classes.DirectedWeightedGraph" relationship="DEPENDENCY">
+      <point x="34.5" y="-49.0" />
+      <point x="1680.1478439425036" y="881.0" />
+      <point x="1602.1478439425036" y="881.0" />
+      <point x="1602.1478439425036" y="781.0" />
+      <point x="1433.1478439425036" y="781.0" />
+      <point x="1433.1478439425036" y="771.0" />
+      <point x="1048.046372347706" y="771.0" />
+      <point x="118.66666666666674" y="82.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.GameManger" relationship="CREATE">
+      <point x="0.0" y="-82.0" />
+      <point x="2007.379705681039" y="1561.0" />
+      <point x="2021.9401950718689" y="1561.0" />
+      <point x="99.0" y="104.0" />
+    </edge>
+    <edge source="Gui.MyFrame" target="Gui.GraphDraw" relationship="CREATE">
+      <point x="-27.5" y="-14.5" />
+      <point x="1464.879705681039" y="1978.0" />
+      <point x="1432.129705681039" y="1978.0" />
+      <point x="0.0" y="159.0" />
+    </edge>
+    <edge source="classes.GeoLocation" target="api.GeoLocation" relationship="REALIZATION">
+      <point x="0.0" y="-49.0" />
+      <point x="1456.3978439425036" y="489.0" />
+      <point x="1519.4401950718689" y="489.0" />
+      <point x="1519.4401950718689" y="366.0" />
+      <point x="1617.2083333333335" y="366.0" />
+      <point x="1617.2083333333335" y="50.0" />
+      <point x="836.6666666666666" y="50.0" />
+      <point x="43.33333333333337" y="14.5" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphAlgorithms" target="classes.NodeData" relationship="CREATE">
+      <point x="-34.5" y="-49.0" />
+      <point x="1611.1478439425036" y="891.0" />
+      <point x="1581.6478439425036" y="891.0" />
+      <point x="1581.6478439425036" y="831.0" />
+      <point x="1636.1478439425036" y="831.0" />
+      <point x="1636.1478439425036" y="489.0" />
+      <point x="1530.4401950718689" y="489.0" />
+      <point x="1530.4401950718689" y="396.0" />
+      <point x="807.4583333333334" y="396.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="classes.Agent" target="classes.GeoLocation" relationship="DEPENDENCY">
+      <point x="-35.0" y="-82.0" />
+      <point x="1344.9656913073227" y="831.0" />
+      <point x="1465.8978439425036" y="831.0" />
+      <point x="1465.8978439425036" y="761.0" />
+      <point x="1456.3978439425036" y="761.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.GeoLocation" relationship="CREATE">
+      <point x="57.75" y="-49.0" />
+      <point x="587.1666666666667" y="891.0" />
+      <point x="740.8797056810392" y="891.0" />
+      <point x="740.8797056810392" y="811.0" />
+      <point x="1401.6478439425036" y="811.0" />
+      <point x="1401.6478439425036" y="761.0" />
+      <point x="1412.3978439425036" y="761.0" />
+      <point x="-44.0" y="49.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraph" target="classes.NodeData" relationship="TO_MANY">
+      <point x="-133.4999999999999" y="-82.0" />
+      <point x="795.8797056810394" y="489.0" />
+      <point x="946.9583333333334" y="489.0" />
+      <point x="946.9583333333334" y="406.0" />
+      <point x="590.3406913073227" y="406.0" />
+      <point x="590.3406913073227" y="356.0" />
+      <point x="752.7916666666667" y="356.0" />
+      <point x="-54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="classes.Pokemon" target="classes.EdgeData" relationship="DEPENDENCY">
+      <point x="-35.0" y="-71.0" />
+      <point x="1888.3978439425036" y="871.0" />
+      <point x="2030.379705681039" y="871.0" />
+      <point x="2030.379705681039" y="376.0" />
+      <point x="2062.9583333333335" y="376.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.NodeData" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2436.4656913073227" y="2055.0" />
+      <point x="2436.4656913073227" y="386.0" />
+      <point x="1914.9583333333335" y="386.0" />
+      <point x="1914.9583333333335" y="336.0" />
+      <point x="862.1249999999999" y="336.0" />
+      <point x="54.66666666666663" y="60.0" />
+    </edge>
+    <edge source="classes.DirectedWeightedGraphTest" target="classes.NodeData" relationship="CREATE">
+      <point x="57.75" y="-49.0" />
+      <point x="587.1666666666667" y="891.0" />
+      <point x="740.8797056810392" y="891.0" />
+      <point x="740.8797056810392" y="781.0" />
+      <point x="728.9401950718687" y="781.0" />
+      <point x="728.9401950718687" y="396.0" />
+      <point x="807.4583333333334" y="396.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="ex4_java_client.Main" target="classes.Agent" relationship="DEPENDENCY">
+      <point x="85.0" y="-82.0" />
+      <point x="2092.379705681039" y="2065.0" />
+      <point x="2583.796372347706" y="2065.0" />
+      <point x="2583.796372347706" y="2055.0" />
+      <point x="2467.632357973989" y="2055.0" />
+      <point x="2467.632357973989" y="1269.0" />
+      <point x="2511.0645106091706" y="1269.0" />
+      <point x="2511.0645106091706" y="1129.0" />
+      <point x="1426.6323579739894" y="1129.0" />
+      <point x="46.66666666666674" y="82.0" />
+    </edge>
+    <edge source="classes.GameMangerTest" target="classes.Agent" relationship="DEPENDENCY">
+      <point x="87.33333333333348" y="-49.0" />
+      <point x="2696.465691307323" y="1611.0" />
+      <point x="2636.690195071869" y="1611.0" />
+      <point x="2636.690195071869" y="1601.0" />
+      <point x="2613.2083333333335" y="1601.0" />
+      <point x="2613.2083333333335" y="1269.0" />
+      <point x="2511.0645106091706" y="1269.0" />
+      <point x="2511.0645106091706" y="1129.0" />
+      <point x="1426.6323579739894" y="1129.0" />
+      <point x="46.66666666666674" y="82.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7279735682819384" showDependencies="true" x="2125.1855772866857" y="1841.56151606722" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
