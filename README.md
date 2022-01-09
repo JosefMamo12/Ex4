@@ -32,3 +32,6 @@ run `java -jar Ex4.jar`.
 
 * [How to run clip](https://www.youtube.com/watch?v=n8h_7lhBrug)
 
+## Detailed Information
+* You can see at the [WIKI Pages](https://github.com/JosefMamo12/Ex4/wiki)
+
