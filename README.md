@@ -152,6 +152,61 @@ run `java -jar Ex4.jar`.
  `public String toString()`
  
  `public int hashCode()`
+ 
+ ### GameManger
+ 
+ `public Client getClient()`
+ 
+ `public ArrayList<Agent> getAgents()`
+ 
+ `public DirectedWeightedGraphAlgorithms getGraphAlgo()`
+ 
+ `public void setAgents(ArrayList<Agent> agents`
+ 
+ `public GameManger(Client client, GameServer gameServer)`
+ 
+ `public void chooseNextEdge(int agentId, int nextNode)`
+ 
+ `public GameServer getGameServer()`
+ 
+ `public void stop()`
+ 
+ `public void move()`
+ 
+ `public void start()`
+ 
+ `public boolean isRunning()`
+ 
+ `public void loadGraph()`
+ 
+ `public DirectedWeightedGraph getGraph()`
+ 
+ `public static ArrayList<Agent> loadAgents(String file)`
+ 
+ `public static ArrayList<Pokemon> loadPokemons(String pokemonsStr)`
+ 
+ `public String TimeToEnd()`
+ 
+ `public static GameServer loadGameServer(String file)`
+ 
+ `public void relatedEdge(Pokemon p)`
+ 
+ `public void updatePokemonsInit()`
+ 
+ `public void updatePokemons()`
+ 
+ `public void update()`
+ 
+ `public void updateAgents()`
+ 
+ `public void addAgents(int agentsSize, HashMap<Integer, Integer> agentBool)`
+ 
+ `public String getInfo()`
+ 
+ 
+ 
+ 
+ 
 ### NodeData
 
 `public void setWeight(double w)` - 
