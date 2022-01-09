@@ -16,9 +16,9 @@
 | ![Zoro](https://github.com/JosefMamo12/Ex4/blob/master/resources/zoro.png) | 6 - 10 |
 | ![Sunji](https://github.com/JosefMamo12/Ex4/blob/master/resources/sunji.png) | 5 |
 
-![Marine Soldier](https://github.com/JosefMamo12/Ex4/blob/master/resources/agent.png) - Marine soldier who chase the pirates
+![Marine Soldier](https://github.com/JosefMamo12/Ex4/blob/master/resources/agent.png)  Marine soldier who chase the pirates and gain points
 
-![pirateboat](https://github.com/JosefMamo12/Ex4/blob/master/resources/pirateboat.png) - Vertex in the game where the marine soldier start the chase
+![pirateboat](https://github.com/JosefMamo12/Ex4/blob/master/resources/pirateboat.png)  Vertex in the game where the marine soldier start the chase
 
 
 ## How to run
