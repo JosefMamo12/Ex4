@@ -139,12 +139,23 @@ run `java -jar Ex4.jar`.
  
 `private void createGraphFromJson(JsonArray jaN, JsonArray jaE)`
  
+ ### EdgeData
  
+ `public int getSrc()`
  
+ `public int getDest()`
+ 
+ `public double getWeight()`
+ 
+ `public boolean equals(Object o)`
+ 
+ `public String toString()`
+ 
+ `public int hashCode()`
 ### NodeData
 
 `public void setWeight(double w)` - 
 
 ***
 
-### EdgeData
+
