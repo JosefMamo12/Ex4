@@ -280,4 +280,20 @@ run `java -jar Ex4.jar`.
 
 ***
 
+### Pokemon
 
+  `public double getValue()`
+ 
+  `public void setDistance(double distance)`
+  
+  `public double getDistance()`
+  
+  `public int getType()`
+  
+  `public GeoLocation getPos()`
+  
+  `public EdgeData getEdge()`
+  
+  `public void setEdge(EdgeData relatedEdge)`
+  
+  `public String toString()`
