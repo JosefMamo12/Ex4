@@ -204,7 +204,25 @@ run `java -jar Ex4.jar`.
  `public String getInfo()`
  
  
+ ### GameServer
  
+  `public void update(String str)`
+  
+  `public void setMoves(int moves)`
+  
+   `public int getMoves() `
+   
+   `public int getGrade()`
+   
+   `public void setGrade(int grade) `
+   
+   `public int getGameLevel()`
+   
+   `public void setGameLevel(int gameLevel)`
+   
+   `public String getGraph()`
+   
+   `public int getAgentsSize()`
  
  
 ### NodeData
