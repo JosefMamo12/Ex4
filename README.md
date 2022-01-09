@@ -40,18 +40,29 @@ run `java -jar Ex4.jar`.
 # Classe
 
 ### Agent
- `public void setPos(GeoLocation pos)`
- `public int getId()`
- `public void setId(int id)`
- `public double getValue()`
- `public void setValue(double value)`
- `public int getSrc()` 
- `public void setSrc(int src)`
- `public int getDest()`
- `public void setDest(int dest)`
- `public GeoLocation getPos()`
- `public String toString()`
- `public void setSpeed(double speed)`
+ `public void setPos(GeoLocation pos)`- 
+ 
+ `public int getId()`- 
+ 
+ `public void setId(int id)` - 
+ 
+ `public double getValue()` - 
+ 
+ `public void setValue(double value)` - 
+ 
+ `public int getSrc()` - 
+ 
+ `public void setSrc(int src)`- 
+ 
+ `public int getDest()`- 
+ 
+ `public void setDest(int dest)`- 
+ 
+ `public GeoLocation getPos()` - 
+ 
+ `public String toString()` - 
+ 
+ `public void setSpeed(double speed)` - 
 
 
 ### NodeData
