@@ -64,6 +64,7 @@ run `java -jar Ex4.jar`.
  
  `public void setSpeed(double speed)` - 
 
+  ********************************************************
 
 ### DirectedWeightedGraph
 
@@ -115,6 +116,9 @@ run `java -jar Ex4.jar`.
  
 `public int getMC()` - 
  
+   ********************************************************
+
+ 
 ### DirectedWeightedGraphAlgorithms
 
 `public void init(api.DirectedWeightedGraph g)`
@@ -139,6 +143,8 @@ run `java -jar Ex4.jar`.
  
 `private void createGraphFromJson(JsonArray jaN, JsonArray jaE)`
  
+   ********************************************************
+ 
  ### EdgeData
  
  `public int getSrc()`
@@ -153,6 +159,8 @@ run `java -jar Ex4.jar`.
  
  `public int hashCode()`
  
+   ********************************************************
+   
  ### GameManger
  
  `public Client getClient()`
@@ -202,8 +210,9 @@ run `java -jar Ex4.jar`.
  `public void addAgents(int agentsSize, HashMap<Integer, Integer> agentBool)`
  
  `public String getInfo()`
- 
- 
+  
+  ********************************************************
+
  ### GameServer
  
   `public void update(String str)`
@@ -224,6 +233,26 @@ run `java -jar Ex4.jar`.
    
    `public int getAgentsSize()`
  
+   ********************************************************
+
+ ### GeoLocation
+ 
+  `public boolean equals(Object o)`
+  
+  `public int hashCode()`
+  
+  `public double x() `
+  
+  `public double y() `
+  
+  `public String toString()`
+  
+  `public double z()`
+   
+  `public double distance(api.GeoLocation g)`
+  
+  
+  ********************************************************
  
 ### NodeData
 
