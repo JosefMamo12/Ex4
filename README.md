@@ -1,1 +1,3 @@
-# Ex4 Final object oriented project finally !!!
+# Ex4 Pokemon Game (One Piece Catch the Pirate Game)
+
+
