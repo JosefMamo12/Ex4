@@ -56,7 +56,7 @@ public class DirectedWeightedGraph implements api.DirectedWeightedGraph {
      */
     @Override
     public EdgeData getEdge(int src, int dest) {
-        if (graph.containsKey(src) && graph.get(src).containsKey(dest))
+        if  (src != dest && graph.containsKey(src) && graph.get(src).containsKey(dest))
             return this.graph.get(src).get(dest);
         return null;
     }

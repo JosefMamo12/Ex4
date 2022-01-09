@@ -15,10 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represnation of the graph using java swing.
@@ -197,8 +194,13 @@ public class GraphDraw extends JPanel {
             /*
             For jar file images
              */
-//            backGround = ImageIO.read(getClass().getResourceAsStream("/resources/Background1.jpg"));
-//            nodePaint = ImageIO.read(getClass().getResourceAsStream("/resources/new.png"));
+//            backGround = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/One-Piece-1000th-Episodes(2).png")));
+//            agentImage = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/agent.png")));
+//            nodePaint = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/pirateboat.png")));
+//            luffy = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/luffy.png")));
+//            zoro = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/zoro.png")));
+//            sunji = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/sunji.png")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }

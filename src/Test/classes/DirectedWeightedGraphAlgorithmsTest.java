@@ -76,26 +76,12 @@ class DirectedWeightedGraphAlgorithmsTest {
         g1.removeNode(5);
         assertNull(dwa1.shortestPath(1, 12));
         assertEquals(expected, actual.toString());
-        DirectedWeightedGraphAlgorithms dwa = new DirectedWeightedGraphAlgorithms();
-        dwa.init(g);
-        dwa.load("data/G1.json");
-        actual = new StringBuilder();
-        expected = "->0->1->2->6->7->8->9";
-        List<NodeData> lnd = dwa.shortestPath(0, 9);
-        for (NodeData nodeData : lnd) {
-            actual.append("->").append(nodeData.getKey());
-        }
-
-        assertEquals(actual.toString(), expected);
-//        assertEquals(d, 7);
     }
 
     @Test
     void center() {
         DirectedWeightedGraphAlgorithms dwa = new DirectedWeightedGraphAlgorithms();
         dwa.init(g);
-        dwa.load("data/1000Nodes.json");
-        assertEquals(362, dwa.center().getKey());
         DirectedWeightedGraph dwg = graphCreator(4);
         dwg.connect(1, 0, 1);
         dwg.connect(0, 1, 1);

@@ -4,7 +4,13 @@ package ex4_java_client;
 import Gui.MyFrame;
 import classes.*;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.*;
 
 
@@ -54,7 +60,9 @@ public class Main implements Runnable {
 
     @Override
     public void run() {
+
         init();
+
         gameManger.start();
         while (gameManger.isRunning()) {
             gameManger.update();
@@ -89,7 +97,7 @@ public class Main implements Runnable {
             gameManger.move();
             moveCounter++;
             if (moveCounter % 10 == 1)
-                waitingTime = 30;
+                waitingTime = 20;
             else
                 waitingTime = 100;
         }
@@ -142,6 +150,7 @@ public class Main implements Runnable {
         }
         if (lst == null) {
             lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(), centerNode));
+            System.out.println("Is HERE?");
         }
         return lst.get(1).getKey();
 
