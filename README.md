@@ -256,6 +256,26 @@ run `java -jar Ex4.jar`.
  
 ### NodeData
 
+ `public boolean equals(Object o) `
+ 
+ `public int hashCode()`
+ 
+ `public int getKey()`
+ 
+ `public GeoLocation getLocation()`
+ 
+ `public void setLocation(GeoLocation p) `
+ 
+ `public double getWeight()`
+ 
+ `public int getTag()`
+ 
+ `public void setTag(int t)`
+ 
+ `public int compareTo(NodeData o)`
+ 
+ `public String toString()`
+
 `public void setWeight(double w)` - 
 
 ***
