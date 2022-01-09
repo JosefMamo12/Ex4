@@ -65,6 +65,57 @@ run `java -jar Ex4.jar`.
  `public void setSpeed(double speed)` - 
 
 
+### DirectedWeightedGraph
+
+`public HashMap<Integer, NodeData> getNodes()` - 
+
+`public HashMap<Integer, HashMap<Integer, EdgeData>> getGraph()` - 
+
+`public static final String ERROR = "ConcurrentModificationException: Changed the structure of the data structure while iterating!";` - 
+
+`public int hashCode()` - 
+
+`public DirectedWeightedGraph()` - 
+
+`public NodeData getNode(int key) ` - 
+  
+`public EdgeData getEdge(int src, int dest)` - 
+  
+`public void addNode(@NotNull NodeData n)` - 
+  
+`public void connect(int src, int dest, double w)` - 
+
+`public boolean equals(Object o)` - 
+
+`public Iterator<NodeData> nodeIter()` - 
+ 
+`public boolean hasNext()` - 
+ 
+`public NodeData next()` - 
+ 
+`public Iterator<EdgeData> edgeIter()`-  
+ 
+`public boolean hasNext()` - 
+ 
+`public EdgeData next()` - 
+ 
+`public Iterator<EdgeData> edgeIter(int node_id)` - 
+ 
+`public boolean hasNext()` - 
+ 
+`public EdgeData next()` - 
+
+`public NodeData removeNode(int key)` - 
+ 
+`public EdgeData removeEdge(int src, int dest)` - 
+ 
+`public int nodeSize()` - 
+ 
+`public int edgeSize()`- 
+ 
+`public int getMC()` - 
+ 
+ 
 ### NodeData
 
 `public void setWeight(double w)` - 
