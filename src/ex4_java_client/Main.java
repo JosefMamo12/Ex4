@@ -150,7 +150,6 @@ public class Main implements Runnable {
         }
         if (lst == null) {
             lst = new ArrayList<>(gameManger.getGraphAlgo().shortestPath(agent.getSrc(), centerNode));
-            System.out.println("Is HERE?");
         }
         return lst.get(1).getKey();
 
