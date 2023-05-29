@@ -1,10 +1,10 @@
 # Ex4 Pokemon Game (One Piece Catch the Pirate Game)
 ## Game Process
-* Put the amount of pirates that we got from the server on one of the edges
-* Put the marine soldier on one of the vertices
-* Search for the closest marine soldier to a pirate
-* Chase after the pirate
-* After every catch the grade go up depent on the value of the pirate
+1. Retrieving Pirates: The game starts by fetching the number of pirates from the server. This information is displayed on one of the edges of the game screen.
+2. Placing Marine Soldier: A marine soldier character is positioned on one of the vertices of the game environment.
+3. Finding the Closest Pirate: The game algorithm identifies the nearest pirate to the marine soldier's location. This calculation ensures that the marine soldier can start chasing after the selected pirate.
+4. Chasing Pirates: The marine soldier begins pursuing the chosen pirate, moving through the game environment to catch them.
+5.  Catching Pirates: When the marine soldier successfully catches a pirate, the player earns points based on the value of the pirate. The grade or score of the player increases with each successful capture.
 
 ![GifMaker_20220109105727517](https://user-images.githubusercontent.com/73185009/148676111-2dd2e154-938a-45b1-8513-19347c042417.gif)
 
@@ -19,16 +19,40 @@
 ![Marine Soldier](https://github.com/JosefMamo12/Ex4/blob/master/resources/agent.png)  Marine soldier who chase the pirates and gain points
 
 ![pirateboat](https://github.com/JosefMamo12/Ex4/blob/master/resources/pirateboat.png)  Vertex in the game where the marine soldier start the chase
-
+To run the Ex4 Pokemon Game (One Piece Catch the Pirate Game), you have two options:
 
 ## How to run
-There is two ways
 
-1. Clone this repository using this [url](https://github.com/JosefMamo12/Ex4.git) and download the Ex4_Server_v0.0.jar from [here](https://github.com/JosefMamo12/Ex4/releases/tag/Execute). put the jar file in same directory of the repository. run this code in the terminal
-`java -jar Ex4_Server_v0.0.jar <Case Number [0 - 15]> ` then click run.
-2. Download the two release from [here](https://github.com/JosefMamo12/Ex4/releases/tag/Execute)  put them in the same direcotry and from 
-two different terminal. first run this at the first terminal `java -jar Ex4_Server_v0.0.jar <Case Number [0 - 15]>` at the other terminal 
-run `java -jar Ex4.jar`.
+### Option 1:
+
+1. Clone the repository from this URL to your local machine.
+2. Download the Ex4_Server_v0.0.jar file from here and place it in the same directory as the cloned repository.
+3. Open a terminal or command prompt and navigate to the directory where the repository and the server JAR file are located.
+4. Run the following command in the terminal:
+
+`java -jar Ex4_Server_v0.0.jar <Case Number [0 - 15]>`
+
+Replace <Case Number [0 - 15]> with the desired case number for the game.
+
+5. Click the "Run" button to start the game.
+
+### Option 2:
+
+1. Download both releases from here to your local machine.
+2. Place both the Ex4_Server_v0.0.jar and Ex4.jar files in the same directory.
+3. Open two separate terminal or command prompt windows.
+4. In the first terminal, run the following command:
+
+`java -jar Ex4_Server_v0.0.jar <Case Number [0 - 15]>`
+
+Replace <Case Number [0 - 15]> with the desired case number for the game.
+
+5. In the second terminal, run the following command:
+
+`java -jar Ex4.jar`
+6. The game will start running in the second terminal window.
+
+Choose either option based on your preference, and you'll be able to run and play the Ex4 Pokemon Game (One Piece Catch the Pirate Game).
 
 * [How to run clip](https://www.youtube.com/watch?v=n8h_7lhBrug)
 
